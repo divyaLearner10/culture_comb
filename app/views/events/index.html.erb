@@ -7,4 +7,9 @@
   <p><%= event.address %></p>
   <p><%= event.phone_number %></p>
   <p><%= event.start_time %></p>
+  <%= link_to "Delete Event",
+      event_path(event),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+      class: "btn btn-danger"
+  %>
 <% end %>

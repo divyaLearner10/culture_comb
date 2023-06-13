@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show]
+  before_action :set_event, only: [:show, :destroy]
 
   def index
     @city = City.find(params[:city_id])
@@ -29,10 +29,16 @@ class EventsController < ApplicationController
     redirect_to city_events_path
   end
 
+  def destroy
+    @event.destroy
+
+    redirect_to city_events_path(@event)
+  end
+
   private
 
   def set_event
-    @post = Post.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def event_params

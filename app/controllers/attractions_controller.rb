@@ -1,5 +1,5 @@
 class AttractionsController < ApplicationController
-  before_action :set_attraction, only: [:show]
+  before_action :set_attraction, only: [:show, :destroy]
   skip_before_action :authenticate_user!, only: [:new, :index, :show]
 
   def index
@@ -23,6 +23,12 @@ class AttractionsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @attraction.destroy
+
+    redirect_to city_attractions_path(@attraction)
   end
 
   private

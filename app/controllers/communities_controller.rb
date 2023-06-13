@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
-  before_action :set_community, only: [:show]
+  before_action :set_community, only: [:show, :destroy]
 
   def index
     @city = City.find(params[:city_id])
@@ -24,6 +24,12 @@ class CommunitiesController < ApplicationController
     @community.save!
 
     redirect_to city_communities_path
+  end
+
+  def destroy
+    @community.destroy
+
+    redirect_to city_communities_path(@community)
   end
 
   private

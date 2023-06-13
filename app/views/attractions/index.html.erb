@@ -5,4 +5,9 @@
   <p><%= attraction.address %></p>
   <p><%= attraction.opening_hours %></p>
   <p><%= attraction.website_url %></p>
+  <%= link_to "Delete Attraction",
+      attraction_path(attraction),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+      class: "btn btn-danger"
+  %>
 <% end %>

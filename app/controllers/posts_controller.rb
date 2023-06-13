@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show]
+  before_action :set_post, only: [:show, :destroy]
 
   def index
     @city = City.find(params[:city_id])
@@ -23,6 +23,12 @@ class PostsController < ApplicationController
     @post.save!
 
     redirect_to city_posts_path
+  end
+
+  def destroy
+    @post.destroy
+
+    redirect_to city_posts_path(@post)
   end
 
   private
