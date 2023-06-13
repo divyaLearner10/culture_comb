@@ -1,1 +1,7 @@
 <h1>Post New Page</h1>
+<%= simple_form_for([@city,@post], html: { class: "new-form" }) do |f|%>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :website_url %>
+  <%= f.button :submit, "Add post", class: "btn btn-primary w-100 new-form-submit"%>
+<% end %>

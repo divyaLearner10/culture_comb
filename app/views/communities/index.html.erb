@@ -1,0 +1,5 @@
+<h1>Communities Index page</h1>
+<% @communities.each do |community| %>
+  <h5><%= community.name %></h5>
+  <p><%= community.description %></p>
+<% end %>

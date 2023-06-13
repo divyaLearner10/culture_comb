@@ -15,6 +15,5 @@ class FavoriteEventsController < ApplicationController
     @favorite_event.event = @event
     @post.user = current_user
     @favorite_event.save!
-
   end
 end

@@ -1,0 +1,10 @@
+<h1>Event Index Page</h1>
+<% @events.each do |event| %>
+  <h5><strong><%= event.name %></strong></h5>
+  <p><%= event.description %></p>
+  <p><%= event.website_url %></p>
+  <p><%= event.date %></p>
+  <p><%= event.address %></p>
+  <p><%= event.phone_number %></p>
+  <p><%= event.start_time %></p>
+<% end %>

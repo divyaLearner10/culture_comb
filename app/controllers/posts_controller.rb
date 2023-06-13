@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  action_before :set_post, only: [:show]
+  before_action :set_post, only: [:show]
 
   def index
     @city = City.find(params[:city_id])
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.save!
 
-    redirect_to city_path(:city_id)
+    redirect_to city_posts_path
   end
 
   private
@@ -32,6 +32,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:city).permit(:title, :content, :website_url)
+    params.require(:post).permit(:title, :content, :website_url)
   end
 end
