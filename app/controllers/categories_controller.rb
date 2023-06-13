@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show]
+  before_action :set_category, only: [:show, :destroy]
 
   def index
     @categories = Category.all
@@ -17,6 +17,12 @@ class CategoriesController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @category.destroy
+
+    redirect_to categories_path
   end
 
   private

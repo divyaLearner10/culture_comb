@@ -2,4 +2,9 @@
 <% @communities.each do |community| %>
   <h5><%= community.name %></h5>
   <p><%= community.description %></p>
+  <%= link_to "Delete Community",
+      community_path(community),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+      class: "btn btn-danger"
+  %>
 <% end %>

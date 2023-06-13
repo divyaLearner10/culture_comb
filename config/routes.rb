@@ -6,13 +6,16 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :attractions, only: [:show]
+  resources :attractions, only: [:show, :destroy]
+  resources :communities, only: [:show, :destroy]
+  resources :events, only: [:show, :destroy]
+  resources :posts, only: [:show, :destroy]
 
   resources :favorite_categories, only: [:index]
   resources :event_categories, only: [:index]
   resources :favorite_events, only: [:index]
 
-  resources :categories, only: [:index, :new, :show, :create] do
+  resources :categories do
     resources :favorite_categories, only: [:new, :create]
   end
 
@@ -24,11 +27,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cities, only: [:index, :show, :new, :create] do
-    resources :events, only: [:index, :new, :create]
-    resources :posts, only: [:index, :new, :show, :create]
-    resources :attractions, only: [:index, :new, :create]
-    resources :communities, only: [:index, :new, :create]
+  resources :cities do
+    resources :events
+    resources :posts
+    resources :attractions
+    resources :communities
   end
 
   resources :chatrooms, only: [:index, :show] do
