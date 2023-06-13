@@ -1,1 +1,13 @@
 // Specific CSS for your home-page
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap');
+
+body{
+  background-color: #EEEEEE ;
+}
+.description-section {
+  background-color: whitesmoke;
+  text-align: center;
+  height: 300px;
+  font-family: 'Roboto', sans-serif;
+  font-size: large;
+}
