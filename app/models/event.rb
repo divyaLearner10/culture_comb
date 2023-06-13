@@ -7,13 +7,13 @@ class Event < ApplicationRecord
   validates :description, length: { minimum: 10 }
   # validates :date
   # , date: true
-  # validates :event_date_cannot_be_in_the_past
+  validate :event_date_cannot_be_in_the_past
 
-  # private
+  private
 
-  # def event_date_cannot_be_in_the_past
-  #   if date.present? && date < Date.today
-  #     errors.add(:date, "can't be in the past")
-  #   end
-  # end
+  def event_date_cannot_be_in_the_past
+    if date.present? && date < Date.today
+      errors.add(:date, "can't be in the past")
+    end
+  end
 end
