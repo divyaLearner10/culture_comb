@@ -5,7 +5,8 @@ class Event < ApplicationRecord
 
   validates :name, :website_url, :description, :date, :start_time, presence: true
   validates :description, length: { minimum: 10 }
-  validates :date, date: true
+  # validates :date
+  # , date: true
   # validates :event_date_cannot_be_in_the_past
 
   # private
