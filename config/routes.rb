@@ -12,23 +12,23 @@ Rails.application.routes.draw do
   resources :event_categories, only: [:index]
   resources :favorite_events, only: [:index]
 
-  resources :categories, only: [:index, :new, :show] do
-    resources :favorite_categories, only: [:new]
+  resources :categories, only: [:index, :new, :show, :create] do
+    resources :favorite_categories, only: [:new, :create]
   end
 
 
   resources :events, only: [:show] do
-    resources :favorite_events, only: [:new]
+    resources :favorite_events, only: [:new, :create]
     resources :categories, only: [:index] do
-      resources :event_categories, only: [:new]
+      resources :event_categories, only: [:new, :create]
     end
   end
 
-  resources :cities, only: [:index, :show] do
-    resources :events, only: [:index, :new]
-    resources :posts, only: [:index, :new, :show]
-    resources :attractions, only: [:index, :new]
-    resources :communites, only: [:index, :new]
+  resources :cities, only: [:index, :show, :new, :create] do
+    resources :events, only: [:index, :new, :create]
+    resources :posts, only: [:index, :new, :show, :create]
+    resources :attractions, only: [:index, :new, :create]
+    resources :communities, only: [:index, :new, :create]
   end
 
   resources :chatrooms, only: [:index, :show] do

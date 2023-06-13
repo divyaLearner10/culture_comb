@@ -1,1 +1,6 @@
 <h1>Post Index Page</h1>
+<% @posts.each do |post| %>
+  <h5><strong><%= post.title %></strong></h5>
+  <p><%= post.content %></p>
+  <p><%= post.website_url %></p>
+<% end %>

@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   belongs_to :community, optional: true
   belongs_to :user
 
-  validates :name, :website_url, :description, :date, :start_time, presence: true
+  validates :name, :website_url, :description, :date, presence: true
   validates :description, length: { minimum: 10 }
   # validates :date
   # , date: true
