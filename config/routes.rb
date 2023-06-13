@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :attractions, only: [:show]
-  resources :chatrooms, only: [:index]
 
   resources :favorite_categories, only: [:index]
   resources :event_categories, only: [:index]
@@ -32,7 +31,7 @@ Rails.application.routes.draw do
     resources :communites, only: [:index, :new]
   end
 
-  resources :users do
-    resources :chatrooms, only: [:show]
+  resources :chatrooms, only: [:index, :show] do
+    resources :messages, only: :create
   end
 end
