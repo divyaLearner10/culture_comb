@@ -1,5 +1,5 @@
 class AttractionsController < ApplicationController
-  before_action :set_attraction, only: [:show, :destroy]
+  before_action :set_attraction, only: [:show, :destroy, :edit, :update]
   skip_before_action :authenticate_user!, only: [:new, :index, :show]
 
   def index
@@ -23,6 +23,21 @@ class AttractionsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+    @city = City.find(params[:city_id])
+    @attraction = @city.attractions.find(params[:id])
+  end
+
+  def update
+    @city = City.find(params[:city_id])
+    @attraction = @city.attractions.find(params[:id])
+    if @attraction.update(attraction_params)
+      redirect_to city_attractions_path
+    else
+      render :edit
+    end
   end
 
   def destroy

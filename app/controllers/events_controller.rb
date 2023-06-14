@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :destroy]
+  before_action :set_event, only: [:show, :destroy, :edit, :update]
 
   def index
     @city = City.find(params[:city_id])
@@ -27,6 +27,21 @@ class EventsController < ApplicationController
     @event.save!
 
     redirect_to city_events_path
+  end
+
+  def edit
+    @city = City.find(params[:city_id])
+    @event = @city.events.find(params[:id])
+  end
+
+  def update
+    @city = City.find(params[:city_id])
+    @event = @city.events.find(params[:id])
+    if @event.update(event_params)
+      redirect_to city_events_path
+    else
+      render :edit
+    end
   end
 
   def destroy

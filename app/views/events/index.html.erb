@@ -7,6 +7,10 @@
   <p><%= event.address %></p>
   <p><%= event.phone_number %></p>
   <p><%= event.start_time %></p>
+  <%= link_to "Update Event",
+      edit_city_event_path(@city, event),
+      class: "btn btn-secondary"
+  %>
   <%= link_to "Delete Event",
       event_path(event),
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},

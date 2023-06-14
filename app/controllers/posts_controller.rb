@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :destroy]
+  before_action :set_post, only: [:show, :destroy, :edit, :update]
 
   def index
     @city = City.find(params[:city_id])
@@ -23,6 +23,21 @@ class PostsController < ApplicationController
     @post.save!
 
     redirect_to city_posts_path
+  end
+
+  def edit
+    @city = City.find(params[:city_id])
+    @post = @city.posts.find(params[:id])
+  end
+
+  def update
+    @city = City.find(params[:city_id])
+    @post = @city.posts.find(params[:id])
+    if @post.update(post_params)
+      redirect_to city_posts_path
+    else
+      render :edit
+    end
   end
 
   def destroy

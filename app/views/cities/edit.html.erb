@@ -1,0 +1,6 @@
+<h1>Edit Cities Page</h1>
+<%= simple_form_for(@city, html: { class: "edit-form" }) do |f|%>
+  <%= f.input :name %>
+  <%= f.input :description, as: :text, input_html: { rows: 4 } %>
+  <%= f.button :submit, "Update city", class: "btn btn-primary w-100 new-form-submit"%>
+<% end %>

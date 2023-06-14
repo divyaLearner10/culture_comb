@@ -1,0 +1,11 @@
+<h1>Edit Event</h1>
+<%= simple_form_for([@city, @event], html: { class: "edit-form" }) do |f|%>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :website_url %>
+  <%= f.input :date %>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.input :start_time %>
+  <%= f.button :submit, "Update event", class: "btn btn-primary"%>
+<% end %>
