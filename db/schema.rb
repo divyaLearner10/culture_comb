@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_12_214423) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_14_101235) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,12 +63,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_214423) do
   end
 
   create_table "chatrooms", force: :cascade do |t|
-    t.bigint "asker_id"
-    t.bigint "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["asker_id"], name: "index_chatrooms_on_asker_id"
-    t.index ["receiver_id"], name: "index_chatrooms_on_receiver_id"
+    t.string "name"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -183,8 +180,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_214423) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "attractions", "cities"
-  add_foreign_key "chatrooms", "users", column: "asker_id"
-  add_foreign_key "chatrooms", "users", column: "receiver_id"
   add_foreign_key "communities", "cities"
   add_foreign_key "communities", "users"
   add_foreign_key "event_categories", "categories"
