@@ -5,6 +5,14 @@ class AttractionsController < ApplicationController
   def index
     @city = City.find(params[:city_id])
     @attractions = @city.attractions
+    # map settup for attractions
+    @markers = @attractions.geocoded.map do |attraction|
+      {
+        lat: attraction.latitude,
+        lng: attraction.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { attraction: attraction })
+      }
+    end
   end
 
   def new
