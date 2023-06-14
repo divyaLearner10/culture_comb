@@ -1,3 +1,4 @@
+<div>
 <h1>Attractions Index Page</h1>
 <% @attractions.each do |attraction| %>
   <h5><strong><%= attraction.name %></strong></h5>
@@ -15,3 +16,9 @@
       class: "btn btn-danger"
   %>
 <% end %>
+ <div style="width: 80%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
+  </div>
+</div>
