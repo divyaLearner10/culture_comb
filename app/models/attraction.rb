@@ -5,4 +5,6 @@ class Attraction < ApplicationRecord
 
   validates :name, :website_url, :description, :address, presence: true
   validates :description, length: { minimum: 10 }
+
+  has_one_attached :photo
 end

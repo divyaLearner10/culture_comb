@@ -1,6 +1,9 @@
 <div>
 <h1>Event Index Page</h1>
 <% @events.each do |event| %>
+  <% event.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
   <h5><strong><%= event.name %></strong></h5>
   <p><%= event.description %></p>
   <p><%= event.website_url %></p>

@@ -1,6 +1,7 @@
 <div>
 <h1>Attractions Index Page</h1>
 <% @attractions.each do |attraction| %>
+  <%= cl_image_tag attraction.photo.key, height: 300, width: 400, crop: :fill %>
   <h5><strong><%= attraction.name %></strong></h5>
   <p><%= attraction.description %></p>
   <p><%= attraction.address %></p>

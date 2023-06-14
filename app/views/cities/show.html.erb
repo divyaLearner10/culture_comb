@@ -1,16 +1,16 @@
 <h1>City Show Page</h1>
-<div class="city-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1581887469434-5dacb946ab56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cG9ydG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60);">
-  <div class="container">
-    <h1 class="city-name"><%= @city.name%></h1>
-    <p><%= @city.description%></p>
-  </div>
+
+<div class="container">
+  <%= cl_image_tag @city.photo.key, height: 300, width: 400, crop: :fill %>
+  <h1 class="city-name"><%= @city.name%></h1>
+  <p><%= @city.description%></p>
+  <%= link_to "Edit City",
+    edit_city_path(@city),
+    class: "btn btn-secondary"
+  %>
+  <%= link_to "Delete City",
+    city_path(@city),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+    class: "btn btn-danger"
+  %>
 </div>
-<%= link_to "Edit City",
-      edit_city_path(@city),
-      class: "btn btn-secondary"
-%>
-<%= link_to "Delete City",
-       city_path(@city),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-      class: "btn btn-danger"
-%>
