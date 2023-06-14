@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :favorite_categories
   has_many :categories, through: :favorite_categories
+  has_many :events
   accepts_nested_attributes_for :favorite_categories
   accepts_nested_attributes_for :categories
 

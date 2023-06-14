@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+#geocoder gem
+gem "geocoder"
+
 # To upload images
 gem "cloudinary"
 
