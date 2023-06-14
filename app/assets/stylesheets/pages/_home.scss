@@ -1,5 +1,5 @@
 // Specific CSS for your home-page
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
 
 body{
   background-color: #EEEEEE ;
@@ -7,7 +7,22 @@ body{
 .description-section {
   background-color: whitesmoke;
   text-align: center;
+  height: 500px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: large;
+}
+.container{
+  padding: 160px;
+}
+.city-section {
+  text-align: center;
   height: 300px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: large;
+}
+.attraction-section{
+  text-align: center;
+  height: 300px;
+  font-family: 'Montserrat Alternates', sans-serif;
   font-size: large;
 }
