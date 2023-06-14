@@ -10,9 +10,11 @@ class Event < ApplicationRecord
   # , date: true
   validate :event_date_cannot_be_in_the_past
 
-
+  has_many :event_categories
+  has_many :categories, through: :event_categories
 
   private
+  
   def event_date_cannot_be_in_the_past
     if date.present? && date < Date.today
       errors.add(:date, "can't be in the past")
