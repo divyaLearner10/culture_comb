@@ -1,6 +1,41 @@
 class ChatroomsController < ApplicationController
+  before_action :set_chatroom, only: [:show, :destroy]
+
+  def index
+    @chatrooms = Chatroom.all
+  end
+
   def show
-    @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+  end
+
+  def new
+    @chatroom = Chatroom.new
+  end
+
+  def create
+    @chatroom = Chatroom.new(chatroom_params)
+    @chatroom.save!
+    if @chatroom.save!
+      redirect_to chatrooms_path
+    else
+      render "chatroom/show", status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @chatroom.destroy
+
+    redirect_to chatrooms_path
+  end
+
+  private
+
+  def set_chatroom
+    @chatroom = Chatroom.find(params[:id])
+  end
+
+  def chatroom_params
+    params.require(:chatroom).permit(:name)
   end
 end
