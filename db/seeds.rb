@@ -10,6 +10,9 @@ puts "users clear"
 City.delete_all
 puts "cities clear"
 
+Chatroom.delete_all
+puts "Chatroom clear"
+
 puts "Creating users"
 
 users_data = [
@@ -81,3 +84,9 @@ categories_data.map do |category_data|
   Category.create!(category_data)
 end
 puts 'Finished!'
+
+puts "Creating chatroom"
+
+Chatroom.create(name: "General")
+
+puts "Finished chatroom!"
