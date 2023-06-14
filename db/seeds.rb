@@ -5,10 +5,12 @@ Community.delete_all
 puts "communites clear"
 Category.delete_all
 puts "category clear"
-User.delete_all
-puts "users clear"
+Event.delete_all
+puts "events clean"
 City.delete_all
 puts "cities clear"
+User.delete_all
+puts "users clear"
 
 Chatroom.delete_all
 puts "Chatroom clear"
