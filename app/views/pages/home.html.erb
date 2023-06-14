@@ -2,7 +2,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80);background-position: center bottom;">
   <div class="container">
     <h1 class="culture-comb">CultureComb</h1>
-    <%# <p class= "slogan">Discover the best of your new city</p> %>
+    <p class= "slogan">Discover the best of your new city</p>
   </div>
 </div>
 
@@ -12,7 +12,7 @@
     <div class="card-description">
       <div class="card-body">
         <h1>CultureComb</h1>
-        <p>CultureComb is designed to help expats feel at home in their new city.As an expat, it can be overwhelming to navigate a new city. But with CultureComb, you'll have access to the latest information and attractions, making it easy for you to immerse yourslef in your new home. Discover hiden gems in any city with CultureComb</p>
+        <p>CultureComb is designed to help expats feel at home in their new city. As an expat, it can be overwhelming to navigate a new city. But with CultureComb, you'll have access to the latest information and attractions, making it easy for you to immerse yourslef in your new home. Discover hiden gems in any city with CultureComb.</p>
         </p>
       </div>
     </div>
@@ -20,17 +20,17 @@
 </div>
 
 <div class="city-section">
-  <div class="container">
-    <div class="card mb-5">
-      <div class="row no-gutters">
-        <div class="col-md-8">
+  <div class="container city-card">
+    <div class="card overflow-hidden mb-5 border-0">
+      <div class="row no-gutters h-100">
+        <div class="col-md-8 h-100">
           <div class="card-body">
             <h4 class="card-title">Which city are you in ?</h4>
-            <p class="card-text">Select your city</p>
-            <%=link_to "select you city", class: "btn btn-gradient"%>
+            <p class="card-text">Explore diffrent events and join a community!</p>
+            <%=link_to "select you city", class: "btn-primary"%>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 h-100">
           <img src="https://plus.unsplash.com/premium_photo-1685265133438-73c97e558163?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80"
               class="card-img" alt="...">
         </div>
@@ -40,11 +40,11 @@
 </div>
 
 <div class="attraction-section">
-  <div class="container">
+  <div class="container ">
     <h1>Attractions</h1>
-    <div class="card-group">
-        <div class="card" >
-          <img src="https://images.unsplash.com/photo-1450609283058-0ec52fa7eac4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="">
+    <div class="card-group ">
+        <div class="card" style="border: 1px solid black; height: 100%" >
+          <img class="image" src="https://images.unsplash.com/photo-1450609283058-0ec52fa7eac4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="">
           <div class="card-body">
             <h4 class="card-title">Attraction name</h4>
             <p class="card-text"><i class="fa-solid fa-location-dot"></i>Attraction address</p>

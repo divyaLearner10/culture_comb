@@ -1,45 +1,57 @@
 // Specific CSS for your home-page
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 body{
   background-color: #EEEEEE ;
+  font-family: 'Playfair Display', serif;
 }
 .description-section {
   background-color: whitesmoke;
   text-align: center;
-  height: 500px;
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-size: large;
+  // height: 300px;
+  // font-size: large;
+  // font-family: 'Playfair Display', serif;
+
+}
+.container .slogan {
+  font-size: 20px;
 }
 .container{
-  padding: 160px;
+  padding: 50px;
 }
 
 .city-section {
-  text-align: center;
-  height: 20;
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-size: large;
+  // text-align: center;
+  // height: 50;
+  // font-size: large;
   background-color: #FFD369;
   text-align: center;
 }
-
-.city-section .card .mb-5{
-  max-width: 1100px;
-  margin-left: 50px
+.image-city{
+  border-radius: 10px;
 }
-
+.image{
+  border-radius: 10px;
+}
+.card {
+  max-width: 1100px;
+  margin-left: 50px;
+  margin-bottom: 0;
+  height: 200px;
+  border-radius: 10px;
+  // overflow: hidden;
+}
 
 .attraction-section .card-group {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr ;
+  grid-gap: 40px;
   margin-top: 30px;
 }
 
 .attraction-section{
   text-align: center;
   height: 300px;
-  font-family: 'Montserrat Alternates', sans-serif;
   font-size: large;
 }
