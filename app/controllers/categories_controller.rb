@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  action_before :set_category, only: [:show]
+  before_action :set_category, only: [:show, :destroy, :edit, :update]
 
   def index
     @categories = Category.all
@@ -12,9 +12,27 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     @category.save!
+
+    redirect_to categories_path
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @category.update(category_params)
+      redirect_to categories_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @category.destroy
+    redirect_to categories_path
   end
 
   private
@@ -24,7 +42,7 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:city).permit(:name)
+    params.require(:category).permit(:name)
   end
 
 end

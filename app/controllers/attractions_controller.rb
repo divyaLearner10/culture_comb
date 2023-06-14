@@ -1,5 +1,6 @@
 class AttractionsController < ApplicationController
-  action_before :set_attraction, only: [:show]
+  before_action :set_attraction, only: [:show, :destroy, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:new, :index, :show]
 
   def index
     @city = City.find(params[:city_id])
@@ -14,14 +15,35 @@ class AttractionsController < ApplicationController
   def create
     @city = City.find(params[:city_id])
 
-    @attraction = Attraction.new(attractio_params)
+    @attraction = Attraction.new(attraction_params)
     @attraction.city = @city
     @attraction.save!
 
-    redirect_to city_path(:city_id)
+    redirect_to city_attractions_path
   end
 
   def show
+  end
+
+  def edit
+    @city = City.find(params[:city_id])
+    @attraction = @city.attractions.find(params[:id])
+  end
+
+  def update
+    @city = City.find(params[:city_id])
+    @attraction = @city.attractions.find(params[:id])
+    if @attraction.update(attraction_params)
+      redirect_to city_attractions_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @attraction.destroy
+
+    redirect_to city_attractions_path(@attraction)
   end
 
   private
@@ -31,7 +53,7 @@ class AttractionsController < ApplicationController
   end
 
   def attraction_params
-    params.require(:city).permit(:name, :description, :address, :opening_hours,
+    params.require(:attraction).permit(:name, :description, :address, :opening_hours,
                                   :website_url, :latitude, :longitude )
   end
 end

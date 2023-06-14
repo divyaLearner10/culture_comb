@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  action_before :set_post, only: [:show]
+  before_action :set_post, only: [:show, :destroy, :edit, :update]
 
   def index
     @city = City.find(params[:city_id])
@@ -22,7 +22,28 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.save!
 
-    redirect_to city_path(:city_id)
+    redirect_to city_posts_path
+  end
+
+  def edit
+    @city = City.find(params[:city_id])
+    @post = @city.posts.find(params[:id])
+  end
+
+  def update
+    @city = City.find(params[:city_id])
+    @post = @city.posts.find(params[:id])
+    if @post.update(post_params)
+      redirect_to city_posts_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @post.destroy
+
+    redirect_to city_posts_path(@post)
   end
 
   private
@@ -32,6 +53,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:city).permit(:title, :content, :website_url)
+    params.require(:post).permit(:title, :content, :website_url)
   end
 end

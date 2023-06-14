@@ -1,0 +1,6 @@
+<h1>Community New Page</h1>
+<%= simple_form_for([@city, @community], html: { class: "new-form" }) do |f|%>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.button :submit, "Add community", class: "btn btn-primary w-100 new-form-submit"%>
+<% end %>

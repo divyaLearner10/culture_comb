@@ -1,5 +1,5 @@
 class CommunitiesController < ApplicationController
-  action_before :set_community, only: [:show]
+  before_action :set_community, only: [:show, :destroy, :edit, :update]
 
   def index
     @city = City.find(params[:city_id])
@@ -12,6 +12,7 @@ class CommunitiesController < ApplicationController
   def new
     @city = City.find(params[:city_id])
     @community = Community.new
+
   end
 
   def create
@@ -22,6 +23,27 @@ class CommunitiesController < ApplicationController
     @community.user = current_user
     @community.save!
 
+    redirect_to city_communities_path
+  end
+
+  def edit
+    @city = City.find(params[:city_id])
+    @community = @city.communities.find(params[:id])
+  end
+
+  def update
+    @city = City.find(params[:city_id])
+    @community = @city.communities.find(params[:id])
+    if @community.update(community_params)
+      redirect_to city_communities_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @community.destroy
+    redirect_to city_communities_path(@community)
   end
 
   private
@@ -31,6 +53,6 @@ class CommunitiesController < ApplicationController
   end
 
   def community_params
-    params.require(:city).permit(:name, :description)
+    params.require(:community).permit(:name, :description)
   end
 end
