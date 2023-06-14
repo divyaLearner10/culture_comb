@@ -7,5 +7,6 @@
   <%= f.input :address %>
   <%= f.input :phone_number %>
   <%= f.input :start_time %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit, "Add event", class: "btn btn-primary w-100 new-form-submit"%>
 <% end %>

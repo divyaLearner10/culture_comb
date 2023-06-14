@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     resources :communities
   end
 
-  resources :chatrooms, only: [:index, :show] do
+  resources :chatrooms, only: [:index, :new, :create, :show, :destroy] do
     resources :messages, only: :create
   end
 end
