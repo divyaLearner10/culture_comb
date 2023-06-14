@@ -10,7 +10,8 @@ class EventsController < ApplicationController
     @markers = @events.geocoded.map do |event|
       {
         lat: event.latitude,
-        lng: event.longitude
+        lng: event.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { event: event})
       }
     end
   end
@@ -19,22 +20,29 @@ class EventsController < ApplicationController
   end
 
   def new
-    @city = City.find(params[:city_id])
-    # @community = Community.find(params[:community_id])
+    if params[:city_id].present?
+      @city = City.find(params[:city_id])
+    elsif params[:community_id].present?
+      @community = Community.find(params[:community_id])
+    end
     @event = Event.new
   end
 
   def create
-    @city = City.find(params[:city_id])
-    # @community = Community.find(params[:community_id])
-
     @event = Event.new(event_params)
-    @event.city = @city
-    # @event.community = @community
     @event.user = current_user
-    @event.save!
+    if params[:city_id].present?
+      @city = City.find(params[:city_id])
+      @event.city = @city
+      @event.save!
 
-    redirect_to city_events_path
+      redirect_to city_events_path
+    elsif params[:community_id].present?
+      @community = Community.find(params[:community_id])
+      @event.community = @community
+
+      @event.save!
+    end
   end
 
   def edit
@@ -66,6 +74,6 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :description, :website_url, :date, :address,
-                                  :phone_number, :start_date)
+                                  :phone_number, :start_date, photos: [])
   end
 end

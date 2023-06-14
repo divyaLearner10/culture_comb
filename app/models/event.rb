@@ -4,7 +4,11 @@ class Event < ApplicationRecord
   belongs_to :city
   belongs_to :community, optional: true
   belongs_to :user
+
+  has_many_attached :photos
+
   validates :name, :website_url, :description, :address, :date, presence: true
+
   validates :description, length: { minimum: 10 }
   # validates :date
   # , date: true
