@@ -92,3 +92,4 @@ puts "Creating chatroom"
 Chatroom.create(name: "General")
 
 puts "Finished chatroom!"
+puts "Done! Heroku "
