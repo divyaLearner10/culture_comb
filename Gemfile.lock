@@ -277,6 +277,7 @@ DEPENDENCIES
   cloudinary
   debug
   devise
+  dotenv
   dotenv-rails
   font-awesome-sass (~> 6.1)
   geocoder
@@ -299,4 +300,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.4.13
+   2.4.14
