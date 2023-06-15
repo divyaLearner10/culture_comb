@@ -1,7 +1,7 @@
 <div class="container event-show">
 
   <div class="row">
-  <h1><strong>Event in <%= @city.name %></strong></h1>
+  <h1><strong>Event</strong></h1>
     <div class="col-12 col-lg-6">
       <div class="container pb-3 mt-0" id="event-show">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -52,14 +52,4 @@
       </div>
     </div>
   </div>
-
-  <%= link_to "Update Event",
-    edit_city_event_path(@city, @event),
-    class: "btn btn-secondary"
-  %>
-  <%= link_to "Delete Event",
-    event_path(@event),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-    class: "btn btn-danger"
-  %>
 </div>
