@@ -14,3 +14,37 @@
       class: "btn btn-danger"
   %>
 <% end %>
+
+<div class="container">
+      <div class="col-12">
+        <div class="accordion" id="accordionExample">
+          <% @posts.each do |post| %>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <%= post.title %>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="card mb-3" style="max-width: inherit; max-height: 200px">
+                  <div class="row g-0">
+                    <div class="col-md-2">
+                      <%= cl_image_tag post.photo.key, class: "img-fluid", alt: post.title %>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= post.title %></h5>
+                        <p class="card-text"><%= post.content %></p>
+                        <p class="card-text"><%= post.website_url %></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>

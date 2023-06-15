@@ -2,45 +2,40 @@
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%=image_tag('logo.png', size: "40x40") %>
-
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Login ⬢", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item">
-
-            <%= link_to "Join ⬢", "#", class: "nav-link" %>
-
-            <%# In future, don't call db actions from view %>
             <%= link_to "Chatroom", chatrooms_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <span class="nav-link"><%= current_user.first_name %></span>
-
+          </li>
+          <li class="nav-item">
+            <%# <% <%= link_to user_path(current_user) do %> <%#%>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+            <%#<% end %>
           </li>
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-          </a>
+            <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag "https://cdn.icon-icons.com/icons2/2844/PNG/512/view_app_grid_icon_181213.png", class: "avatar", alt: "dropdown menu" %>
+            </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Cities", cities_path, class: "dropdown-item" %>
+              <%= link_to "Contact us", "#", class: "dropdown-item" %>
+              <%= link_to "FAQ", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Join now ⬢", new_user_registration_path, class: "nav-link"%>
           </li>
-            <span><%= link_to "Join now", new_user_session_path, class: "nav-link"%></span>
+          <li class="nav-item">
+            <%= link_to "Login ⬢", new_user_session_path, class: "nav-link" %>
+          </li>
         <% end %>
       </ul>
     </div>
