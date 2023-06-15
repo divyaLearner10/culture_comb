@@ -13,7 +13,9 @@
             <div class="card" id="post-card">
               <div class="row">
                 <div class="col-sm-2 post-image">
-                  <%= cl_image_tag post.photo.key, class: "img-top", alt: post.title %>
+                  <%= link_to post_path(post) do %>
+                    <%= cl_image_tag post.photo.key, class: "img-top", alt: post.title %>
+                  <% end %>
                 </div>
                 <div class="col-sm-8">
                   <div class="card-body">
