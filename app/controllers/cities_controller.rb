@@ -2,6 +2,10 @@ class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:home, :index, :show]
 
+  def home
+    @images = images
+  end
+
   def index
     @cities = City.all
   end
