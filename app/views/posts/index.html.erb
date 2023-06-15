@@ -1,50 +1,44 @@
-<h1>Post Index Page</h1>
-<% @posts.each do |post| %>
-  <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
-  <h5><strong><%= post.title %></strong></h5>
-  <p><%= post.content %></p>
-  <p><%= post.website_url %></p>
-  <%= link_to "Update Post",
-      edit_city_post_path(@city, post),
-      class: "btn btn-secondary"
-  %>
-  <%= link_to "Delete Post",
-      post_path(post),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-      class: "btn btn-danger"
-  %>
-<% end %>
-
-<div class="container">
-      <div class="col-12">
-        <div class="accordion" id="accordionExample">
-          <% @posts.each do |post| %>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <%= post.title %>
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div class="card mb-3" style="max-width: inherit; max-height: 200px">
-                  <div class="row g-0">
-                    <div class="col-md-2">
-                      <%= cl_image_tag post.photo.key, class: "img-fluid", alt: post.title %>
-                    </div>
-                    <div class="col-md-10">
-                      <div class="card-body">
-                        <h5 class="card-title"><%= post.title %></h5>
-                        <p class="card-text"><%= post.content %></p>
-                        <p class="card-text"><%= post.website_url %></p>
-                      </div>
-                    </div>
+<div class="container post-index">
+  <h1>All Posts</h1>
+  <div class="col-12">
+    <div class="accordion" id="accordionExample">
+      <% @posts.each do |post| %>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <%= post.title %>
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="card" id="post-card">
+              <div class="row">
+                <div class="col-sm-2 post-image">
+                  <%= cl_image_tag post.photo.key, class: "img-top", alt: post.title %>
+                </div>
+                <div class="col-sm-8">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= post.title %></h5>
+                    <p class="card-text"><%= post.content %></p>
+                    <p class="card-text"><%= post.website_url %></p>
                   </div>
                 </div>
+                <div class="col-sm-2">
+                  <%= link_to "Update Post",
+                    edit_city_post_path(@city, post),
+                    class: "btn btn-secondary"
+                  %>
+                  <%= link_to "Delete Post",
+                    post_path(post),
+                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                    class: "btn btn-danger"
+                  %>
+                </div>
               </div>
+            </div>
           </div>
-
-          <% end %>
-        </div>
       </div>
+
+      <% end %>
     </div>
+  </div>
+</div>

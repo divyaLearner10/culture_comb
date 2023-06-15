@@ -1,0 +1,58 @@
+.post-image img {
+  height: 200px;
+  width: 190px;
+}
+
+#post-card {
+  display: grid;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1 0 auto;
+  max-width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#post-card img {
+  position: relative;
+  border-radius: 5px;
+  margin-top: -22px;
+  margin-left: -20px;
+}
+
+#post-card .btn {
+  margin-top: 5px;
+  font-family: 'Nunito';
+}
+
+.post-index .accordion-button {
+  background-color: #f6d790;
+  margin: 0;
+  color: rgb(35, 37, 40);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Nunito';
+}
+
+.post-index .card-body h5 {
+  color: rgb(35, 37, 40);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+  font-family: 'Nunito';
+}
+
+.post-index .card-body p {
+  color: rgb(35, 37, 40);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  font-family: 'Nunito';
+}
