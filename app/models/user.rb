@@ -16,4 +16,5 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :favorite_categories
   accepts_nested_attributes_for :categories
 
+  has_one_attached :photo
 end
