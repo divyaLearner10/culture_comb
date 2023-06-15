@@ -7,6 +7,9 @@ class CitiesController < ApplicationController
   end
 
   def show
+    @attractions = @city.attractions
+    @events = @city.events
+    @posts = @city.posts
   end
 
   def new
