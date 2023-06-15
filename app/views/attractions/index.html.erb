@@ -1,25 +1,46 @@
-<div>
-<h1>Attractions Index Page</h1>
-<% @attractions.each do |attraction| %>
-  <%= cl_image_tag attraction.photo.key, height: 300, width: 400, crop: :fill %>
-  <h5><strong><%= attraction.name %></strong></h5>
-  <p><%= attraction.description %></p>
-  <p><%= attraction.address %></p>
-  <p><%= attraction.opening_hours %></p>
-  <p><%= attraction.website_url %></p>
-  <%= link_to "Update attraction",
-      edit_city_attraction_path(@city, attraction),
-      class: "btn btn-secondary"
-  %>
-  <%= link_to "Delete Attraction",
-      attraction_path(attraction),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-      class: "btn btn-danger"
-  %>
-<% end %>
- <div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
+<div class="container post-index">
+  <h1>All Attractions</h1>
+  <div class="col-12">
+    <div class="accordion" id="accordionExample">
+      <% @attractions.each do |attraction| %>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <%= attraction.name %>
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="card" id="post-card">
+              <div class="row">
+                <div class="col-sm-2 post-image">
+                <%= link_to attraction_path(attraction) do %>
+                  <%= cl_image_tag attraction.photo.key, class: "img-top", alt: attraction.name %>
+                <% end %>
+
+                </div>
+                <div class="col-sm-8">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= attraction.name %></h5>
+                    <p class="card-text"><%= attraction.description %></p>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+                  <%= link_to "Update Attraction",
+                    edit_city_attraction_path(@city, attraction),
+                    class: "btn btn-secondary"
+                  %>
+                  <%= link_to "Delete Attraction",
+                    attraction_path(attraction),
+                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                    class: "btn btn-danger"
+                  %>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <% end %>
+    </div>
   </div>
 </div>
