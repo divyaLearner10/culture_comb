@@ -7,9 +7,14 @@
         <%= city.name %>
       </div>
     </a>
-      <%= link_to "Edit City",
-    edit_city_path(city),
-    class: "btn btn-secondary"
+    <%= link_to "Edit City",
+      edit_city_path(city),
+      class: "btn btn-secondary"
+    %>
+   <%= link_to "Delete City",
+      city_path(city),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+      class: "btn btn-danger"
   %>
   </div>
 <% end %>
