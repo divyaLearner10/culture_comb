@@ -1,5 +1,7 @@
-<h1>Edit Categories Page</h1>
+<div class="container">
+  <h1>Edit Categories Page</h1>
 <%= simple_form_for(@category, html: { class: "edit-form" }) do |f|%>
   <%= f.input :name %>
   <%= f.button :submit, "Update category", class: "btn btn-primary w-100 edit-form-submit"%>
 <% end %>
+</div>

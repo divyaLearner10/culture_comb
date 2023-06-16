@@ -1,6 +1,6 @@
 <div class="index-renting-space">
-<h1>All Cities</h1>
   <div class="container">
+    <h1 style="text-align: center;">All Cities</h1>
     <div class="row">
       <div class="cards">
         <% @cities.each do |city| %>
@@ -13,6 +13,8 @@
               <h5 class="card-title"><%= city.name %></h5>
               <p class="card-text mb-1"></i> <%= city.description %></p>
             </div>
+            <a href=<%= edit_city_path(city) %> class="btn btn-secondary">Update City</a>
+            <a href=<%= city_path(city) %> class="btn btn-danger">Delete City</a>
           </div>
         <% end %>
     </div>
