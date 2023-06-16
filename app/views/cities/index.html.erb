@@ -1,20 +1,21 @@
-<h1>Cities Index Page</h1>
-<% @cities.each do |city| %>
-  <div class="cards">
-    <a href="<%= city_path(city) %>">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1581887469434-5dacb946ab56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cG9ydG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60)">
+<div class="index-renting-space">
+<h1>All Cities</h1>
+  <div class="container">
+    <div class="row">
+      <div class="cards">
+        <% @cities.each do |city| %>
+          <div class="card" >
+            <%= link_to city_path(city) do %>
+              <%= cl_image_tag city.photo.key, class: "img-fluid", alt: city.name %>
+            <% end %>
 
-        <%= city.name %>
-      </div>
-    </a>
-    <%= link_to "Edit City",
-      edit_city_path(city),
-      class: "btn btn-secondary"
-    %>
-   <%= link_to "Delete City",
-      city_path(city),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-      class: "btn btn-danger"
-  %>
+            <div class="card-body">
+              <h5 class="card-title"><%= city.name %></h5>
+              <p class="card-text mb-1"></i> <%= city.description %></p>
+            </div>
+          </div>
+        <% end %>
+    </div>
   </div>
-<% end %>
+</div>
+</div>

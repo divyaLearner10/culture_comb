@@ -32,7 +32,10 @@ Rails.application.routes.draw do
     resources :events
     resources :posts
     resources :attractions
-    resources :communities
+    resources :communities do
+      resources :events
+      resources :posts
+    end
   end
 
   resources :chatrooms, only: [:index, :new, :create, :show, :destroy] do

@@ -12,7 +12,6 @@ class CommunitiesController < ApplicationController
   def new
     @city = City.find(params[:city_id])
     @community = Community.new
-
   end
 
   def create
