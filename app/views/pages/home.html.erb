@@ -25,7 +25,7 @@
       <div class="cards overflow-hidden mb-5 mt-5 border-0 ">
 
       <% @cities.each do |city| %>
-        <%= link_to city_communities_path(city) do%>
+        <%= link_to city_path(city) do%>
         <% if city.photo.attached? %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path city.photo.key, height: 300, crop: :fill %>')">
           <%= city.name %>
@@ -43,35 +43,34 @@
 
 <div class="attraction-section">
   <div class="container">
-    <h1>Attractions</h1>
+    <h1>CultureComb Cities Attractions</h1>
     <div class="card-group gradient">
         <div class="card" style="border:0 ; height:100%" >
-          <img class="image" src="https://images.unsplash.com/photo-1533285860212-c85e7140a408?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1753&q=80" alt="">
+          <img class="image" src="https://res.cloudinary.com/dwuazcbx4/image/upload/v1686855933/redcharlie-redcharlie1-vGbC6mOeUCw-unsplash_bsvfut.jpg" alt="">
           <div class="card-body">
-            <h4 class="card-title">Attraction name</h4>
-            <p class="card-text"><i class="fa-solid fa-location-dot "></i>Attraction address</p>
-
+            <h4 class="card-title">Livraria Lello</h4>
+            <p class="card-text"><i class="fa-solid fa-location-dot "></i> R. das Carmelitas 144, 4050-161 Porto, 🇵🇹 Portugal</p>
           </div>
         </div>
         <div class="card" style="border:0 ; height:100%" >
-          <img class="image" src="https://images.unsplash.com/photo-1555881400-89d5a9c86668?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80" alt="">
+          <img class="image" src="https://res.cloudinary.com/dwuazcbx4/image/upload/v1686855934/chris-desort-uj5mMdSuJgw-unsplash_hplphl.jpg" alt="">
           <div class="card-body">
-            <h4 class="card-title">Attraction name</h4>
-            <p class="card-text"><i class="fa-solid fa-location-dot"></i>Attraction address</p>
+            <h4 class="card-title">Montmartre</h4>
+            <p class="card-text"><i class="fa-solid fa-location-dot"></i>  6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris,🇫🇷 France</p>
           </div>
         </div>
         <div class="card" style="border:0 ; height:100%" >
-          <img class="image" src="https://images.unsplash.com/photo-1577958194277-7b3bc213b03c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1630&q=80" alt="">
+          <img class="image" src="https://res.cloudinary.com/dwuazcbx4/image/upload/v1686855930/pascal-bernardon-2CkIpl-LhR4-unsplash_awarpy.jpg" alt="">
           <div class="card-body">
-            <h4 class="card-title">Attraction name</h4>
-            <p class="card-text"><i class="fa-solid fa-location-dot"></i>Attraction address</p>
+            <h4 class="card-title">Berlin Wall East Side Gallery</h4>
+            <p class="card-text"><i class="fa-solid fa-location-dot"></i>Mühlenstraße, 10243 Berlin, 🇩🇪 Germany</p>
           </div>
         </div>
         <div class="card" style="border:0 ; height:100%" >
-          <img class="image" src="https://images.unsplash.com/photo-1602264889563-48d525636172?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2532&q=80" alt="">
+          <img class="image" src="https://res.cloudinary.com/dwuazcbx4/image/upload/v1686855931/pedro-menezes-ij9Fm5ktg-I-unsplash_h8kb0c.jpg" alt="">
           <div class="card-body">
-            <h4 class="card-title">Attraction name</h4>
-            <p class="card-text"><i class="fa-solid fa-location-dot"></i>Attraction address</p>
+            <h4 class="card-title">Porto São Bento</h4>
+            <p class="card-text"><i class="fa-solid fa-location-dot"></i>Praça de Almeida Garrett, 4000-069 Porto,🇵🇹 Portugal</p>
 
           </div>
         </div>
