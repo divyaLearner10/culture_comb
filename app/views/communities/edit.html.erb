@@ -1,6 +1,8 @@
-<h1>Community Edit Page</h1>
-<%= simple_form_for([@city, @community], html: { class: "edit-form" }) do |f|%>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.button :submit, "Update community", class: "btn btn-primary"%>
-<% end %>
+<div class="container">
+  <h1>Community Edit Page</h1>
+  <%= simple_form_for([@city, @community], html: { class: "new-form" }) do |f|%>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.button :submit, "Update community", class: "btn btn-primary"%>
+  <% end %>
+</div>
