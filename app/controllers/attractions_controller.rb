@@ -6,18 +6,18 @@ class AttractionsController < ApplicationController
     if params[:city_id].present?
       @city = City.find(params[:city_id])
       @attractions = @city.attractions
-    elsif params[:community_id].present?
-      @attractions = Attraction.all
-    end
 
-    # map settup for attractions
-    @markers = @attractions.geocoded.map do |attraction|
-      {
-        lat: attraction.latitude,
-        lng: attraction.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { attraction: attraction }),
-        marker_html: render_to_string(partial: "marker")
-      }
+      # map settup for attractions
+      @markers = @attractions.geocoded.map do |attraction|
+        {
+          lat: attraction.latitude,
+          lng: attraction.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: { attraction: attraction }),
+          marker_html: render_to_string(partial: "marker")
+        }
+      end
+    else
+      @attractions = Attraction.all
     end
   end
 
