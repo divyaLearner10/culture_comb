@@ -26,9 +26,15 @@
 
       <% @cities.each do |city| %>
         <%= link_to city_communities_path(city) do%>
+        <% if city.photo.attached? %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path city.photo.key, height: 300, crop: :fill %>')">
           <%= city.name %>
           </div>
+        <% else %>
+        <div class="card-category" style="background-color: gray">
+          <%= city.name %>
+          </div>
+        <% end %>
         <% end %>
       <% end %>
       </div>
