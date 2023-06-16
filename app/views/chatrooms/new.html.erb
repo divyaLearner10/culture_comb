@@ -1,6 +1,6 @@
 <div class="container">
-  <%= simple_form_for (@chatroom) do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit, "Submit", class: "btn btn-primary"%>
+  <%= simple_form_for(@chatroom, html: { class: "new-form" }) do |f| %>
+  <%= f.input :name , label: "Subject" %>
+  <%= f.button :submit, "Submit", class: "btn btn-success"%>
   <% end %>
 </div>
