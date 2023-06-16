@@ -1,4 +1,5 @@
 require "open-uri"
+
 # puts "Cleaning Database"
 # Attraction.delete_all
 # puts "attractions clear"
@@ -95,6 +96,7 @@ require "open-uri"
 # puts "Finished chatroom!"
 # puts "Done! Heroku "
 
+
 puts "Cleaning Database"
 Attraction.delete_all
 puts "attractions clear"
@@ -135,7 +137,7 @@ users_data = [
     username: "divyadreamer",
     nationality: "Indian",
     current_city: "Paris",
-    photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682538988/anspbresvpivccfpk9ul.jpg"
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686904824/Divya_profile_cxh5m5.png"
   },
   {
     first_name: "Christophe",
@@ -145,7 +147,7 @@ users_data = [
     username: "cdeissenberg",
     nationality: "French",
     current_city: "Paris",
-    photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682538988/anspbresvpivccfpk9ul.jpg"
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686904824/Chris_profile_wnhuli.jpg"
   },
   {
     first_name: "Karina",
@@ -155,7 +157,7 @@ users_data = [
     username: "karinab",
     nationality: "Mexican",
     current_city: "Porto",
-    photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682538988/anspbresvpivccfpk9ul.jpg"
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686904824/Kar_profile_kwsl9q.jpg"
   }
 ]
 
@@ -174,6 +176,7 @@ users_data.each do |user_data|
     user.save!
     puts "#{user.first_name} account created"
 end
+
 
 puts "Users created!"
 

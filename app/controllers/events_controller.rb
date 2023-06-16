@@ -18,6 +18,11 @@ class EventsController < ApplicationController
   end
 
   def show
+    if params[:city_id].present?
+      @city = City.find(params[:city_id])
+    elsif params[:community_id].present?
+      @community = Community.find(params[:community_id])
+    end
   end
 
   def new
