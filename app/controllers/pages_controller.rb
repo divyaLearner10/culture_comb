@@ -3,4 +3,8 @@ class PagesController < ApplicationController
   def home
     @cities = City.first(3)
   end
+
+  # def show
+  #   # current_user
+  # end
 end

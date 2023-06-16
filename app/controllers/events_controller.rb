@@ -11,12 +11,18 @@ class EventsController < ApplicationController
       {
         lat: event.latitude,
         lng: event.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { event: event})
+        info_window_html: render_to_string(partial: "info_window", locals: { event: event}),
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end
 
   def show
+    if params[:city_id].present?
+      @city = City.find(params[:city_id])
+    elsif params[:community_id].present?
+      @community = Community.find(params[:community_id])
+    end
   end
 
   def new
