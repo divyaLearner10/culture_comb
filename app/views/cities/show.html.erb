@@ -76,7 +76,7 @@
         <% @events.each do |event| %>
           <div class="card">
             <% if event.photos.any? %>
-              <%= link_to event_path(event) do %>
+              <%= link_to city_event_path(@city) do %>
                 <%= cl_image_tag event.photos.first.key, class: "card-img-top event-card-img", alt: event.name %>
               <% end %>
             <% else %>

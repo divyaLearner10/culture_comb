@@ -15,5 +15,14 @@ class FavoriteEventsController < ApplicationController
     @favorite_event.event = @event
     @post.user = current_user
     @favorite_event.save!
+
+    redirect_to favorite_events_path
+  end
+
+  def destroy
+
+    @favorite_event = FavoriteEvent.find(params[:id])
+    @favorite_event.destroy
+    redirect_to favorite_events_path
   end
 end
