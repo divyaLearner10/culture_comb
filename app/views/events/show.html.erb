@@ -46,11 +46,16 @@
       <div class="container border mb-5 p-4 edit-renting-space">
           <h3 class="delete-rs-heading">Like the Event?</h3>
           <%= "#{@event.name} - #{@event.date}" %>
-          <%= button_to 'Add to Favorites', add_to_favorites_event_path(@event), method: :post %>
-          <%= link_to "Add to Favorites",
-              new_event_favorite_event_path(@event),
+          <%= button_to 'Add to Favorites', add_to_favorites_event_path(@event),class: "btn btn-success w-100 delete-rs-button", method: :post %>
+
+      </div>
+      <div class="container border mb-5 p-4 edit-renting-space">
+          <h3 class="delete-rs-heading">Have any Event?</h3>
+          <%= link_to "Add new Event",
+              new_city_event_path(@city),
               class: "btn btn-success w-100 delete-rs-button"
           %>
+
       </div>
     </div>
   </div>

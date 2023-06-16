@@ -15,7 +15,9 @@
               <h5 class="card-title"><%= favorite_event.event.name %></h5>
               <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= favorite_event.event.address %></p>
             </div>
-            <%= link_to "Remove Event", favorite_event_path(favorite_event), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <%= link_to "Remove Event", favorite_event_path(favorite_event),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                   class: "btn btn-secondary w-100 delete-rs-button" %>
           </div>
         <% end %>
     </div>
