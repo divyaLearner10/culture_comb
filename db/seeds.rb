@@ -1,3 +1,5 @@
+require "open-uri"
+
 puts "Cleaning Database"
 Attraction.delete_all
 puts "attractions clear"
@@ -29,13 +31,20 @@ users_data.map do |user_data|
 end
 puts 'Finished!'
 
-
 puts "Creating city"
 cities_data = [
-  { name: "Porto", description: "Porto is a fascinaating and vibrant city, entices with its historic center and sumptuous food and wine.", country: "Portugal" }
+  { name: "Porto", description: "Porto is a fascinaating and vibrant city, entices with its historic center and sumptuous food and wine.", country: "Portugal" },
+  { name: "Paris", description: "Porto is a fascinaating and vibrant city, entices with its historic center and sumptuous food and wine.", country: "France" },
+  { name: "Berlin", description: "Porto is a fascinaating and vibrant city, entices with its historic center and sumptuous food and wine.", country: "Germany" }
+
 ]
+city_photos = ["https://images.unsplash.com/photo-1555881400-74d7acaacd8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80","https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2020&q=80","https://images.unsplash.com/photo-1560969184-10fe8719e047?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" ]
+index = 0
 cities_data.map do |city_data|
-  City.create!(city_data)
+  city = City.create!(city_data)
+  city.photo.attach(io: URI.open(city_photos[index]), filename: "nes.png", content_type: "image/png")
+  city.save
+  index += 1
 end
 puts 'Finished!'
 
