@@ -11,6 +11,10 @@ class CitiesController < ApplicationController
   end
 
   def show
+    @attractions = @city.attractions
+    @events = @city.events[0..2]
+    @posts = @city.posts
+    @communities = @city.communities
   end
 
   def new

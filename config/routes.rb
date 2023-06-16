@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  # users/show
+  resources :users, only: [:show]
 
-  resources :attractions, only: [:show, :destroy]
+  resources :attractions, only: [:index, :show, :destroy]
   resources :communities, only: [:show, :destroy]
   resources :events, only: [:show, :destroy]
   resources :posts, only: [:show, :destroy]
@@ -19,7 +21,6 @@ Rails.application.routes.draw do
     resources :favorite_categories, only: [:new, :create]
   end
 
-
   resources :events, only: [:show] do
     resources :favorite_events, only: [:new, :create]
     resources :categories, only: [:index] do
@@ -31,7 +32,10 @@ Rails.application.routes.draw do
     resources :events
     resources :posts
     resources :attractions
-    resources :communities
+    resources :communities do
+      resources :events
+      resources :posts
+    end
   end
 
   resources :chatrooms, only: [:index, :new, :create, :show, :destroy] do
