@@ -1,9 +1,22 @@
 <div class="container">
   <%= simple_form_for(@chatroom, html: { class: "new-form" }) do |f| %>
-  <%= f.input :name , label: "Subject" %>
-  <%= f.label :recipient_id %>
-  <%= f.collection_select :recipient_id, User.all, :id, :first_name, include_blank: false %>
+  <div class="row">
+    <div class="col-12 col-lg-4 border chat-left">
+    <%= f.collection_select :recipient_id, User.all, :id, :first_name, include_blank: false %>
+    <% User.all.each do |user| %>
+    <li>
+      <%= f.radio_button :recipient_id, user.id %>
+      <%= user.first_name %>
+    </li>
+  <% end %>
+    </div>
 
-  <%= f.button :submit, "Submit", class: "btn btn-success", data: { disable_with: 'Creating...' }%>
+    <div class="col-12 col-lg-8 border chat-right">
+    <%= f.input :name , label: "Subject" %>
+    <%= f.button :submit, "Submit", class: "btn btn-success", data: { disable_with: 'Creating...' }%>
+    </div>
+    <!--<%= f.label :recipient_id %>
+    <%= f.collection_select :recipient_id, User.all, :id, :first_name, include_blank: false %>>-->
+  </div>
   <% end %>
 </div>
