@@ -1,10 +1,17 @@
-<div class="container post-index">
-  <h1>chatrooms</h1>
-  <ul>
-  <% @chatrooms.each do |chatroom| %>
-    <li>
-      <%= link_to chatroom.name, chatroom %>
-    </li>
-  <% end %>
-</ul>
+<div class="container" id="chat-index">
+  <div class="scrollable-container">
+    <h3 class="chat-heading">Messages</h3>
+    <% current_user.all_chatrooms.each do |chatroom| %>
+      <% user = current_user.who_am_i_chatting_with(chatroom) %>
+      <div class="previous-chat border mb-3">
+
+        <h5><%= link_to chatroom.name, chatroom %></h5>
+        <p><small>
+            <strong><%= user.first_name %></strong>
+            <i><%= chatroom.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+          </small></p>
+        <!--<%= link_to user.email, chatroom_path(chatroom) %>-->
+      </div>
+    <% end %>
+  </div>
 </div>

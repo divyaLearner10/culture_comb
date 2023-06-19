@@ -1,22 +1,19 @@
 class ChatroomsController < ApplicationController
+  layout 'chat'
+
   before_action :set_chatroom, only: [:show, :destroy]
   before_action :authenticate_user!
 
   def index
-    @chatrooms = current_user.sent_chatrooms + current_user.received_chatrooms
-
-    #@chatrooms = Chatroom.all
-
   end
 
   def show
-    #@chatroom = current_user.chatrooms.find(params[:id])
-    #@messages = @chatroom.messages.order(created_at: :asc)
     @messages = @chatroom.messages
     @message = Message.new
   end
 
   def new
+    @users = User.all
     @chatroom = Chatroom.new
   end
 
@@ -27,7 +24,7 @@ class ChatroomsController < ApplicationController
     @chatroom.save!
 
     if @chatroom.save!
-      redirect_to chatrooms_path, notice: 'chatroom created successfully.'
+      redirect_to chatroom_path(@chatroom), notice: 'chatroom created successfully.'
     else
       render "chatroom/show", status: :unprocessable_entity
     end

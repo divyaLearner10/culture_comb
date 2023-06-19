@@ -1,0 +1,160 @@
+#chat {
+  padding: 50px;
+}
+.flex-container {
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.chat-left {
+  border-radius: 10px;
+  background: linear-gradient(45deg,#f7e386, #f5d238);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Fira Sans', sans-serif;
+}
+.chat-right {
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #d5d3c7d4;
+  font-family: 'Fira Sans', sans-serif;
+}
+.chat-image img {
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  margin: 20px;
+}
+.old-chat, .new-chat {
+  padding: 15px;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(45deg,#f7e386, #efefee);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Fira Sans', sans-serif;
+  margin-bottom: 5px;
+}
+.chat-description, .chat-options  {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+.chat-description h3 {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 32px;
+  color: #3d3f44;
+  font-weight: bold;
+}
+.chat-description p {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+  color: #52575D;
+}
+.chat-options i{
+  color: rgb(6, 128, 128);
+  font-weight: bold;
+}
+.chat-options h5 {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+  color: #3d3f44;
+}
+.chat-options a {
+  text-decoration: none;
+  text-align: center;
+  color: rgb(6, 128, 128);
+  font-weight: bold;
+}
+
+#chat-index {
+  background-color: #efefee;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.previous-chat {
+  //background-color: #efefee;
+  background: linear-gradient(45deg,#f2e8ba, #efefee);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  max-width: 80%;
+  height: 70px;
+}
+
+.previous-chat h5 {
+  padding-top: 10px;
+  padding-left: 10px;
+  font-family: 'Fira Sans', sans-serif;
+}
+.previous-chat p {
+  padding-bottom: 10px;
+  padding-left: 10px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.previous-chat a {
+  text-decoration: none;
+  color: rgb(6, 128, 128);
+  font-weight: bold;
+}
+
+.chat-heading {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 24px;
+  color: #3d3f44;
+}
+
+.scrollable-container {
+  height: 600px; /* Set a fixed height for the container */
+  overflow-y: scroll; /* Enable vertical scrollbar */
+}
+
+/* Style the scrollbar */
+.scrollable-container::-webkit-scrollbar {
+  width: 7px; /* Set the width of the scrollbar */
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background-color: #c8c6c6; /* Set the background color of the scrollbar track */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Set the color of the scrollbar thumb */
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Set the color of the scrollbar thumb on hover */
+}
+
+/* Add triangles on top and bottom of the scrollbar */
+.scrollable-container::-webkit-scrollbar-button {
+  background-color: transparent;
+  display: block;
+  height: 16px;
+  width: 10px;
+  position: absolute;
+}
+
+.scrollable-container::-webkit-scrollbar-button::before,
+.scrollable-container::-webkit-scrollbar-button::after {
+  content: '';
+  display: block;
+  height: 6px;
+  width: 6px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #888;
+}
+
+.scrollable-container::-webkit-scrollbar-button::before {
+  top: 3px;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.scrollable-container::-webkit-scrollbar-button::after {
+  bottom: 3px;
+  transform: translateX(-50%) rotate(45deg);
+}
