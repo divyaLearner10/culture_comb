@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # users/show
   resources :users, only: [:show]
 
-  resources :attractions, only: [:index, :show, :destroy]
-  resources :communities, only: [:show, :destroy]
+  resources :attractions, only: [:index, :show, :new, :destroy]
+  resources :communities, only: [:show,:new, :destroy]
   resources :events, only: [:show, :destroy]
   resources :posts, only: [:show, :destroy]
 
@@ -45,6 +45,4 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:index, :new, :create, :show, :destroy] do
     resources :messages, only: :create
   end
-
-
 end
