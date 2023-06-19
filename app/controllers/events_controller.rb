@@ -23,6 +23,15 @@ class EventsController < ApplicationController
     elsif params[:community_id].present?
       @community = Community.find(params[:community_id])
     end
+    # @array_event = [@event]
+    @markers = @event.geocode.map do |event|
+      {
+        lat: @event.latitude,
+        lng: @event.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { event: @event}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def new
