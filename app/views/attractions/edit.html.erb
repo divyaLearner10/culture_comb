@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Attractions Edit Page</h1>
-  <%= simple_form_for([@city, @attraction], html: { class: "edit-form" }) do |f|%>
+  <%= simple_form_for([@city, @attraction], html: { class: "new-form" }) do |f|%>
     <%= cl_image_tag @attraction.photo.key, height: 300, width: 400, crop: :fill %>
     <%= f.input :name %>
     <%= f.input :description %>

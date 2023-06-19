@@ -1,6 +1,9 @@
 <div class="container">
-  <%= simple_form_for (@chatroom) do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit, "Submit", class: "btn btn-primary"%>
+  <%= simple_form_for(@chatroom, html: { class: "new-form" }) do |f| %>
+  <%= f.input :name , label: "Subject" %>
+  <%= f.label :recipient_id %>
+  <%= f.collection_select :recipient_id, User.all, :id, :first_name, include_blank: false %>
+
+  <%= f.button :submit, "Submit", class: "btn btn-success", data: { disable_with: 'Creating...' }%>
   <% end %>
 </div>

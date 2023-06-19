@@ -76,7 +76,7 @@
         <% @events.each do |event| %>
           <div class="card">
             <% if event.photos.any? %>
-              <%= link_to event_path(event) do %>
+              <%= link_to city_event_path(@city) do %>
                 <%= cl_image_tag event.photos.first.key, class: "card-img-top event-card-img", alt: event.name %>
               <% end %>
             <% else %>
@@ -105,9 +105,7 @@
         <div class="card mb-3 m-auto" id="post-card">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <%= link_to post_path(post) do %>
-                <%= cl_image_tag post.photo.key, class: "img-fluid", id: "post-image" %>
-              <% end %>
+              <%= cl_image_tag post.photo.key, class: "img-fluid", id: "post-image" %>
             </div>
             <div class="col-md-8">
               <div class="card-body">

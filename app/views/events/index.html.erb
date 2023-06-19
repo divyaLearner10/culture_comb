@@ -1,16 +1,25 @@
-<div class="container">
-    <button class="show-partial-button" type="button"
-          data-action="click->partials#showPartialOne">
-      My Favorite Events
-    </button>
-    <button class="show-partial-button" type="button"
-          data-action="click->events-index#showPartialTwo">
-      All Events
-    </button>
+<div class="container index">
+  <h1 style="text-align: center;">All Events</h1>
+  <div class="row">
+      <div class="cards">
+        <% @events.each do |event| %>
+          <div class="card" >
+            <% if event.photos.any? %>
+              <%= link_to city_event_path(@city, event) do %>
+                <%= cl_image_tag event.photos.last.key, class: "card-img-top event-card-img", alt: event.name %>
+              <% end %>
+            <% else %>
+              <!-- Display a placeholder image or default image if no photos are available -->
+              <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
+            <% end %>
 
-    <div id="partial-container" data-events-index-target="container">
-      <h1>All Events</h1>
-      <%= render partial: 'city_events' %>
+            <div class="card-body">
+              <h5 class="card-title"><%= event.name %></h5>
+              <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= event.address %></p>
+            </div>
+            <a href=<%= edit_city_event_path(@city, event) %> class="btn btn-secondary">Update Event</a>
+            <a href=<%= event_path(event) %> class="btn btn-danger">Delete Event</a>
+          </div>
+        <% end %>
     </div>
-
 </div>

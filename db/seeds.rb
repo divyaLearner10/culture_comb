@@ -212,6 +212,7 @@ cities_data.each do |city_data|
   file = URI.open(city_data[:photo_url])
   city.photo.attach(io: file, filename: File.basename(city_data[:photo_url]), content_type: "image/png")
   city.save!
+  puts city.photo.attached?
   puts "#{city.name} created"
 end
 puts 'Cities created!'

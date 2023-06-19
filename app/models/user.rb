@@ -17,4 +17,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :categories
 
   has_one_attached :photo
+
+  has_many :messages
+  has_many :sent_chatrooms, class_name: 'Chatroom', foreign_key: 'sender_id'
+  has_many :received_chatrooms, class_name: 'Chatroom', foreign_key: 'recipient_id'
 end
