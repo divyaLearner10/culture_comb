@@ -24,30 +24,32 @@
                     <p class="card-text"><%= attraction.description %></p>
                   </div>
                 </div>
-                <% if @city.present? %>
-                  <div class="col-sm-2">
-                    <%= link_to "Update Attraction",
-                      edit_city_attraction_path(@city, attraction),
-                      class: "btn btn-secondary"
-                    %>
-                    <%= link_to "Delete Attraction",
-                      attraction_path(attraction),
-                      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-                      class: "btn btn-danger"
-                    %>
-                  </div>
-                <% else %>
-                  <div class="col-sm-2">
-                    <%= link_to "Update Attraction",
-                      "#",
-                      class: "btn btn-secondary"
-                    %>
-                    <%= link_to "Delete Attraction",
-                      attraction_path(attraction),
-                      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-                      class: "btn btn-danger"
-                    %>
-                  </div>
+                <% if current_user.admin? %>
+                  <% if @city.present? %>
+                    <div class="col-sm-2">
+                      <%= link_to "Update Attraction",
+                        edit_city_attraction_path(@city, attraction),
+                        class: "btn btn-secondary"
+                      %>
+                      <%= link_to "Delete Attraction",
+                        attraction_path(attraction),
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                        class: "btn btn-danger"
+                      %>
+                    </div>
+                  <% else %>
+                    <div class="col-sm-2">
+                      <%= link_to "Update Attraction",
+                        "#",
+                        class: "btn btn-secondary"
+                      %>
+                      <%= link_to "Delete Attraction",
+                        attraction_path(attraction),
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                        class: "btn btn-danger"
+                      %>
+                    </div>
+                  <% end %>
                 <% end %>
                 </div>
               </div>
