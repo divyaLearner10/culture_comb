@@ -9,14 +9,16 @@
 }
 .culture-comb{
   font-family: 'Playfair Display', serif;
-  font-size: 50pt;
+  font-weight: bold;
+  font-size: 90px;
   text-align: center;
 }
 .slogan{
   font-family: 'Playfair Display', serif;
-  font-size: 15pt;
+  font-weight: bold;
+  // font-size: 80px;
   text-align: center top;
 }
-// .container{
-//   align-items: center;
-// }
+.container .slogan{
+  font-size: 65px;
+}
