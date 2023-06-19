@@ -6,7 +6,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
+        <% if user_signed_in? # && current_user.admin? == false %>
           <li class="nav-item dropdown">
             <%= link_to "Chat", chatrooms_path, class: "nav-link" %>
           </li>
@@ -16,8 +16,11 @@
 
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-              <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
+              <% if current_user.photo.present? %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
+              <% else %>
+                <%= image_tag ("admin.png"), class: "avatar", alt: "dropdown menu" %>
+              <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "All Cities", cities_path, class: "dropdown-item" %>
