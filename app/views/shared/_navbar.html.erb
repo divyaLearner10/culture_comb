@@ -6,7 +6,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
+        <% if user_signed_in? # && current_user.admin? == false %>
           <li class="nav-item dropdown">
             <%= link_to "Chat", chatrooms_path, class: "nav-link" %>
           </li>
@@ -16,16 +16,27 @@
 
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-              <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
+              <% if current_user.photo.present? %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
+              <% else %>
+                <%= image_tag ("admin.png"), class: "avatar", alt: "dropdown menu" %>
+              <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "All Cities", cities_path, class: "dropdown-item" %>
-              <%= link_to "All Attractions", attractions_path, class: "dropdown-item" %>
-              <%= link_to "All Communities", "#", class: "dropdown-item" %>
-              <%= link_to "Add new city", new_city_path, class: "dropdown-item" %>
-              <%= link_to "Chat with us", new_chatroom_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <% if current_user.admin? %>
+                <%= link_to "All Cities", cities_path, class: "dropdown-item" %>
+                <%= link_to "All Attractions", attractions_path, class: "dropdown-item" %>
+                <%= link_to "All Communities", "#", class: "dropdown-item" %>
+                <%= link_to "Add new city", new_city_path, class: "dropdown-item" %>
+                <%#link_to "Add new community", new_city_community_path , class: "dropdown-item"%>
+                <%# link_to "Add new attraction", new_attraction_path, class: "dropdown-item" %>
+              <% else %>
+                <%= link_to "All Cities", cities_path, class: "dropdown-item" %>
+                <%= link_to "All Attractions", attractions_path, class: "dropdown-item" %>
+                <%= link_to "All Communities", "#", class: "dropdown-item" %>
+              <% end %>
+                <%= link_to "Chat with us", new_chatroom_path, class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>

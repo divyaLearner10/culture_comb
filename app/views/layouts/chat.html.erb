@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CultureComb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+  </head>
+  <body><%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
+
+    <!--Chat Implementation-->
+    <div class="container" >
+      <div class="row">
+        <div class="col-12 col-lg-4 border chat-left">
+          <%# Button to new chat %>
+          <div class="flex-container">
+          <div class="chat-image">
+            <img src="https://images.unsplash.com/photo-1629131530695-30684ecb2366?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+          </div>
+
+          <div class="chat-description">
+            <h3>Chat Made Simple</h3>
+            <p>Simplify your communication with our intuitive chat feature. Connect instantly with other users, spark conversations effortlessly.</p>
+          </div>
+
+          <div class="chat-options">
+            <div class="old-chat border">
+              <h5>Reconnect Through Past Conversations!</h5>
+              <i class="fa-solid fa-clock-rotate-left fa-beat"></i> <%= link_to 'Previous conversations', chatrooms_path %>
+            </div>
+            <div class="new-chat border">
+              <h5>Embrace New Conversations!</h5>
+              <i class="fa-regular fa-comment-dots fa-beat"></i> <%= link_to 'New Chat', new_chatroom_path %>
+            </div>
+          </div>
+
+
+          </div>
+
+
+
+
+
+          <%# List of all chats %>
+
+          <%# <% current_user.all_chatrooms.each do |chatroom| %>
+          <%#  <%= link_to chatroom.name, chatroom_path(chatroom), class: 'd-block' %>
+          <%# <% end %>
+        </div>
+
+        <div class="col-12 col-lg-8 border chat-right">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -2,9 +2,8 @@
             data-controller="chatroom-subscription"
             data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
-  <h1><%= @chatroom.name %></h1>
-
-  <h2>Messages</h2>
+  <% user = current_user.who_am_i_chatting_with(@chatroom) %>
+  <h2><%= cl_image_tag user.photo.key, class: "avatar"%><%= user.first_name %></h1>
 
    <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
@@ -22,7 +21,4 @@
   %>
   <%= f.submit "Send", class: "btn btn-primary mb-3" %>
 <% end %>
-
-
-  <%= link_to 'Back', chatrooms_path %>
 </div>
