@@ -17,8 +17,19 @@ class Event < ApplicationRecord
   has_many :event_categories
   has_many :categories, through: :event_categories
 
+  include PgSearch::Model
+
+  pg_search_scope :search_by_community,
+    against: [ :name ],
+    associated_against: {
+      community: [ :name ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
   private
-  
+
   def event_date_cannot_be_in_the_past
     if date.present? && date < Date.today
       errors.add(:date, "can't be in the past")

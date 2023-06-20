@@ -6,6 +6,9 @@ ruby "3.1.2"
 #geocoder gem
 gem "geocoder"
 
+#search gem
+gem "pg_search"
+
 # To upload images
 gem "cloudinary"
 
