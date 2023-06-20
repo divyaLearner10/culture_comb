@@ -1,62 +1,81 @@
-<div class="container post-index">
-  <h1>All Attractions</h1>
-  <div class="col-12">
-    <div class="accordion" id="accordionExample">
-      <% @attractions.each do |attraction| %>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              <%= attraction.name %>
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-            <div class="card" id="post-card">
-              <div class="row">
-                <div class="col-sm-2 post-image">
-                <%= link_to attraction_path(attraction) do %>
-                  <%= cl_image_tag attraction.photo.key, class: "img-top", alt: attraction.name %>
-                <% end %>
+<div class="container">
+  <div class="index">
+    <% if current_user.admin? %>
+      <div class="row">
+        <div class="col-12 col-lg-9 border events-left">
+          <div class="events-heading border mt-3">
+            <h3>Eventopia: Unleash the Experience</h3>
+          </div>
 
-                </div>
-                <div class="col-sm-8">
-                  <div class="card-body">
-                    <h5 class="card-title"><%= attraction.name %></h5>
-                    <p class="card-text"><%= attraction.description %></p>
-                  </div>
-                </div>
-                <% if current_user.admin? %>
-                  <% if @city.present? %>
-                    <div class="col-sm-2">
-                      <%= link_to "Update Attraction",
-                        edit_city_attraction_path(@city, attraction),
-                        class: "btn btn-secondary"
-                      %>
-                      <%= link_to "Delete Attraction",
-                        attraction_path(attraction),
-                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-                        class: "btn btn-danger"
-                      %>
-                    </div>
-                  <% else %>
-                    <div class="col-sm-2">
-                      <%= link_to "Update Attraction",
-                        "#",
-                        class: "btn btn-secondary"
-                      %>
-                      <%= link_to "Delete Attraction",
-                        attraction_path(attraction),
-                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-                        class: "btn btn-danger"
-                      %>
-                    </div>
-                  <% end %>
-                <% end %>
-                </div>
+          <div class="cards">
+          <% @attractions.each do |attraction| %>
+            <div class="card" >
+              <%= link_to city_attraction_path(@city, attraction) do %>
+                <%= cl_image_tag attraction.photo.key, class: "card-img-top event-card-img", alt: attraction.name %>
+              <% end %>
+
+              <div class="card-body">
+                <h5 class="card-title"><%= attraction.name %></h5>
+                <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= attraction.address %></p>
+                <p class="card-text"><i class="fa-solid fa-clock"></i> <%= attraction.opening_hours %></p>
               </div>
+
+              <div class="icon-actions">
+                <a href=<%= edit_city_attraction_path(@city, attraction) %>><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href=<%= attraction_path(attraction) %>><i class="fa-solid fa-trash-can"></i></a>
+              </div>
+
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-12 col-lg-3 border events-right">
+          <div class="event-options">
+            <div class="new-event border">
+              <h5>Expand the Excitement: Add a New Attraction to the Lineup!</h5>
+              <i class="fa-regular fa-square-plus fa-beat"></i></i> <%= link_to 'Add New attraction', new_city_attraction_path %>
             </div>
           </div>
+
+          <div class="city-info border">
+            <%= link_to city_path(@city) do %>
+              <%= cl_image_tag @city.photo.key, class: "card-img-top", alt: @city.name %>
+            <% end %>
+            <div class="city-name-description">
+              <h5><%= @city.name %></h5>
+              <p><%= @city.description %></p>
+            </div>
+          </div>
+
+        </div>
       </div>
-      <% end %>
-    </div>
+    <% else %>
+      <div class="row">
+        <div class="col-12 col-lg-12 border events-left">
+          <div class="events-heading border mt-3">
+            <h3>Eventopia: Unleash the Experience</h3>
+          </div>
+          <div class="cards">
+          <% @attractions.each do |attraction| %>
+            <div class="card" >
+              <%= link_to city_attraction_path(@city, attraction) do %>
+                <%= cl_image_tag attraction.photo.key, class: "card-img-top event-card-img", alt: attraction.name %>
+              <% end %>
+
+
+              <div class="card-body">
+                <h5 class="card-title"><%= attraction.name %></h5>
+                <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= attraction.address %></p>
+                <p class="card-text"><i class="fa-solid fa-clock"></i> <%= attraction.opening_hours %></p>
+              </div>
+
+
+
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
   </div>
 </div>
