@@ -1,46 +1,63 @@
-<div class="container post-index">
-  <h1>All Posts</h1>
-  <div class="col-12">
-    <div class="accordion" id="accordionExample">
-      <% @posts.each do |post| %>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              <%= post.title %>
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-            <div class="card" id="post-card">
-              <div class="row">
-                <div class="col-sm-2 post-image">
-                  <%= link_to city_post_path(@city, post) do %>
-                    <%= cl_image_tag post.photo.key, class: "img-top", alt: post.title %>
-                  <% end %>
-                </div>
-                <div class="col-sm-8">
-                  <div class="card-body">
-                    <h5 class="card-title"><%= post.title %></h5>
-                    <p class="card-text"><%= post.content %></p>
-                    <p class="card-text"><%= post.website_url %></p>
-                  </div>
-                </div>
-                <div class="col-sm-2">
-                  <%= link_to "Update Post",
-                    edit_city_post_path(@city, post),
-                    class: "btn btn-secondary"
-                  %>
-                  <%= link_to "Delete Post",
-                    post_path(post),
-                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-                    class: "btn btn-danger"
-                  %>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="container">
+  <div class="index">
+  <div class="row">
+    <div class="col-12 col-lg-9 border events-left">
+      <div class="events-heading border mt-3">
+        <h3>Eventopia: Unleash the Experience</h3>
       </div>
 
+      <div class="cards">
+      <% @posts.each do |post| %>
+        <div class="card" >
+
+            <%= link_to city_post_path(@city, post) do %>
+              <%= cl_image_tag post.photo.key, class: "card-img-top event-card-img", alt: post.title %>
+            <% end %>
+
+
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <p class="card-text"> <%= post.content %></p>
+          </div>
+
+          <div class="icon-actions">
+            <a href=<%= edit_city_post_path(@city, post) %>><i class="fa-solid fa-pen-to-square"></i></a>
+            <%= link_to post_path(post),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class: "delete-rs-button" do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+          </div>
+
+        </div>
       <% end %>
     </div>
+
+    </div>
+
+    <div class="col-12 col-lg-3 border events-right">
+      <div class="event-options">
+        <div class="favorite-events border">
+          <h5>Expand the Excitement: Add a New Post to the Lineup!</h5>
+          <i class="fa-regular fa-square-plus fa-beat"></i> <%= link_to 'Add New Post', new_city_post_path %>
+        </div>
+        <div class="new-event border">
+          <h5>Ready to Chat? Share Your Ideas!</h5>
+          <i class="fa-solid fa-comments fa-beat"></i> <%= link_to 'Start Conversation', chatrooms_path %>
+        </div>
+      </div>
+
+      <div class="city-info border">
+        <%= link_to city_path(@city) do %>
+          <%= cl_image_tag @city.photo.key, class: "card-img-top", alt: @city.name %>
+        <% end %>
+        <div class="city-name-description">
+          <h5><%= @city.name %></h5>
+          <p><%= @city.description %></p>
+        </div>
+      </div>
+
+    </div>
   </div>
+</div>
 </div>
