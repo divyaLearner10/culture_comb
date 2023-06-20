@@ -8,17 +8,17 @@
             <%= link_to city_path(city) do %>
               <%= cl_image_tag city.photo.key, class: "img-fluid", alt: city.name %>
             <% end %>
-
             <div class="card-body">
               <h5 class="card-title"><%= city.name %></h5>
               <p class="card-text mb-1"></i> <%= city.description %></p>
             </div>
+            <% if current_user.admin? %>
             <a href=<%= edit_city_path(city) %> class="btn btn-secondary">Update City</a>
             <a href=<%= city_path(city) %> class="btn btn-danger">Delete City</a>
+            <% end %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-

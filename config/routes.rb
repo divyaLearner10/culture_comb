@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   # users/show
+
   resources :users, only: [:show]
 
   resources :attractions, only: [:index, :show, :new, :destroy]
-  resources :communities, only: [:show,:new, :destroy]
+  resources :communities, only: [:destroy]
   resources :events, only: [:show, :destroy]
   resources :posts, only: [:show, :destroy]
 
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:show] do
-    resources :favorite_events, only: [:new, :create, :index]
+    resources :favorite_events, only: [:new, :create]
     resources :categories, only: [:index] do
       resources :event_categories, only: [:new, :create]
     end
@@ -40,6 +41,8 @@ Rails.application.routes.draw do
 
   resources :events do
     post 'add_to_favorites', on: :member
+    # get 'city_events', on: :collection
+    # get 'favorite_events', on: :collection
   end
 
   resources :chatrooms, only: [:index, :new, :create, :show, :destroy] do

@@ -8,22 +8,30 @@ class PostsController < ApplicationController
 
   def show
     @city = City.find(params[:city_id])
+    @posts = @city.posts
   end
 
   def new
-    @city = City.find(params[:city_id])
     @post = Post.new
+    @city = City.find(params[:city_id])
+    @community = Community.find(params[:community_id])
+    @posts = @city.posts
   end
 
   def create
     @city = City.find(params[:city_id])
-
     @post = Post.new(post_params)
     @post.city = @city
     @post.user = current_user
-    @post.save!
-
-    redirect_to city_posts_path
+    if params[:community_id].present?
+      @community = Community.find(params[:community_id])
+      @post.community = @community
+      @post.save!
+      redirect_to city_community_path(@city, @community)
+    else
+      @post.save!
+      redirect_to city_posts_path
+    end
   end
 
   def edit

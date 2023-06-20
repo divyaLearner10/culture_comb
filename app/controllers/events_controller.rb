@@ -35,10 +35,11 @@ class EventsController < ApplicationController
   end
 
   def new
-    if params[:city_id].present?
+    if params[:community_id].present?
       @city = City.find(params[:city_id])
-    elsif params[:community_id].present?
       @community = Community.find(params[:community_id])
+    else params[:city_id].present?
+      @city = City.find(params[:city_id])
     end
     @event = Event.new
   end
@@ -46,17 +47,18 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-    if params[:city_id].present?
+    if params[:community_id].present?
+      @city = City.find(params[:city_id])
+      @community = Community.find(params[:community_id])
+      @event.community = @community
+      @event.city = @city
+      @event.save!
+      redirect_to city_community_path(@city, @community)
+    else params[:city_id].present?
       @city = City.find(params[:city_id])
       @event.city = @city
       @event.save!
-
       redirect_to city_events_path
-    elsif params[:community_id].present?
-      @community = Community.find(params[:community_id])
-      @event.community = @community
-
-      @event.save!
     end
   end
 
@@ -91,6 +93,10 @@ class EventsController < ApplicationController
       redirect_to events_path, alert: 'Unable to add event to favorites.'
     end
   end
+
+  # def favorite_events
+  #   @favorite_events = current_user.favorite_events
+  # end
 
   private
 
