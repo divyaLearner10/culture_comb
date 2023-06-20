@@ -1,10 +1,35 @@
-
 <div class="container">
-<h1>Work in progres!</h1>
-<h3>But you'll see</h3>
-<ul>
-  <li>Events from the community</li>
-  <li>Posts from the commuinty</li>
-</ul>
+<% if @community.name == "Brazilian" %>
+ <h1><%= "Welcome to the 🇧🇷 " + @community.name + " community!" %></h1>
+<% else %>
+ <h1><%= "Welcome to the 🇫🇷 " + @community.name + " community!" %></h1>
+<% end %>
+<!-- Link to create a new event -->
+<a href="<%= new_city_community_event_path(@community.city, @community) %>"> ＋ New Event </a>
+<!-- Link to create a new post -->
+<a href="<%= new_city_community_post_path(@community.city, @community) %>"> ＋ New Post</a>
 
+<div class="row">
+  <div class="cards">
+    <% @events.each do |event| %>
+      <div class="card" >
+        <% if event.photos.any? %>
+          <%= link_to city_community_event_path(@city,@community, event) do %>
+            <%= cl_image_tag event.photos.last.key, class: "card-img-top event-card-img", alt: event.name %>
+          <% end %>
+        <% else %>
+          <!-- Display a placeholder image or default image if no photos are available -->
+          <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
+        <% end %>
+
+        <div class="card-body">
+          <h5 class="card-title"><%= event.name %></h5>
+          <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= event.address %></p>
+        </div>
+        <a href=<%= edit_city_event_path(@city, event) %> class="btn btn-secondary">Update Event</a>
+        <a href=<%= event_path(event) %> class="btn btn-danger">Delete Event</a>
+      </div>
+    <% end %>
+  </div>
+</div>
 </div>

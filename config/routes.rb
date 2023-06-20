@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :attractions, only: [:index, :show, :new, :destroy]
-  resources :communities, only: [:show,:new, :destroy]
+  resources :communities, only: [:destroy]
   resources :events, only: [:show, :destroy]
   resources :posts, only: [:show, :destroy]
 

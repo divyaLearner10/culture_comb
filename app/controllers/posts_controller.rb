@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    if params[:city_id].present?
     @city = City.find(params[:city_id])
   end
 
@@ -17,7 +18,6 @@ class PostsController < ApplicationController
 
   def create
     @city = City.find(params[:city_id])
-
     @post = Post.new(post_params)
     @post.city = @city
     @post.user = current_user
