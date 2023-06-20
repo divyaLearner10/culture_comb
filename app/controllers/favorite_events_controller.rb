@@ -1,6 +1,6 @@
 class FavoriteEventsController < ApplicationController
   def index
-    @favorite_events = FavoriteEvent.all
+    @favorite_events = current_user.favorite_events
   end
 
   def new
