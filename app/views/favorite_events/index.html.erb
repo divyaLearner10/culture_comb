@@ -1,25 +1,61 @@
-<div class="container index">
-  <h1 style="text-align: center;">My Favorite Events</h1>
-  <div class="row">
-      <div class="cards">
-        <% @favorite_events.each do |favorite_event| %>
-          <div class="card" >
-            <% if favorite_event.event.photos.any? %>
-              <%= cl_image_tag favorite_event.event.photos.last.key, class: "card-img-top event-card-img", alt: favorite_event.event.name %>
-            <% else %>
-              <!-- Display a placeholder image or default image if no photos are available -->
-              <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
-            <% end %>
+<div class="container">
+  <div class="index">
+    <div class="row">
+      <div class="col-12 col-lg-8 border events-left">
+        <div class="events-heading border mt-3">
+        <h3>Captivating Occasions: My Favorite Events</h3>
+        </div>
+        <div class="cards">
+          <% @favorite_events.each do |favorite_event| %>
+            <div class="card" >
+              <% if favorite_event.event.photos.any? %>
+                <%= cl_image_tag favorite_event.event.photos.last.key, class: "card-img-top event-card-img", alt: favorite_event.event.name %>
+              <% else %>
+                <!-- Display a placeholder image or default image if no photos are available -->
+                <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
+              <% end %>
 
-            <div class="card-body">
-              <h5 class="card-title"><%= favorite_event.event.name %></h5>
-              <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= favorite_event.event.address %></p>
+              <div class="card-body">
+                <h5 class="card-title"><%= favorite_event.event.name %></h5>
+                <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= favorite_event.event.address %></p>
+                <p class="card-text"><i class="fa-solid fa-calendar-week"></i> <%= favorite_event.event.date %></p>
+              </div>
+
+              <div class="icon-actions">
+                <%= link_to favorite_event_path(favorite_event),
+                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                    class: "delete-rs-button" do %>
+                  <i class="fa-solid fa-trash-can"></i> <!-- Replace "fas fa-trash-alt" with the desired icon class -->
+                <% end %>
+              </div>
+
             </div>
-            <%= link_to "Remove Event", favorite_event_path(favorite_event),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-                   class: "btn btn-secondary w-100 delete-rs-button" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 border events-right">
+        <div class="event-options">
+          <div class="favorite-events border">
+            <h5>Jump Back, Dive In: Home Page Awaits Your Arrival!</h5>
+            <i class="fa-solid fa-house-user fa-beat"></i> <%= link_to 'Home', root_path %>
           </div>
-        <% end %>
+          <div class="new-event border">
+            <h5>Ready to Chat? Share Your Ideas!</h5>
+            <i class="fa-solid fa-comments fa-beat"></i> <%= link_to 'Start Conversation', chatrooms_path %>
+          </div>
+        </div>
+
+        <div class="city-info border">
+
+            <div style="width: 100%; height: 600px;"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
+            </div>
+
+        </div>
+
       </div>
     </div>
+  </div>
 </div>

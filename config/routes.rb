@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:show] do
-    resources :favorite_events, only: [:new, :create, :index]
+    resources :favorite_events, only: [:new, :create]
     resources :categories, only: [:index] do
       resources :event_categories, only: [:new, :create]
     end
