@@ -5,8 +5,11 @@ class EventsController < ApplicationController
     @city = City.find(params[:city_id])
     # @community = Community.find(params[:community_id])
     @events = @city.events
-    # maps / alex feature
-    # @events = Event.all
+
+    if params[:query].present?
+      @events = Event.search_by_community(params[:query])
+    end
+
     @markers = @events.geocoded.map do |event|
       {
         lat: event.latitude,
