@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   # users/show
+
   resources :users, only: [:show]
 
   resources :attractions, only: [:index, :show, :new, :destroy]
@@ -40,6 +41,8 @@ Rails.application.routes.draw do
 
   resources :events do
     post 'add_to_favorites', on: :member
+    # get 'city_events', on: :collection
+    # get 'favorite_events', on: :collection
   end
 
   resources :chatrooms, only: [:index, :new, :create, :show, :destroy] do

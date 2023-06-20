@@ -12,10 +12,12 @@ export default class extends Controller {
   }
 
   showPartialOne() {
+    console.log("The city_events is now loaded!")
     this.loadPartial('city_events');
   }
 
   showPartialTwo() {
+    console.log("The favorite_events is now loaded!")
     this.loadPartial('favorite_events');
   }
 
