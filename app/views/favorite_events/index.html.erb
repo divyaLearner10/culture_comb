@@ -1,1 +1,25 @@
-<h1>Index Favorite_Events</h1>
+<div class="container index">
+  <h1 style="text-align: center;">My Favorite Events</h1>
+  <div class="row">
+      <div class="cards">
+        <% @favorite_events.each do |favorite_event| %>
+          <div class="card" >
+            <% if favorite_event.event.photos.any? %>
+              <%= cl_image_tag favorite_event.event.photos.last.key, class: "card-img-top event-card-img", alt: favorite_event.event.name %>
+            <% else %>
+              <!-- Display a placeholder image or default image if no photos are available -->
+              <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
+            <% end %>
+
+            <div class="card-body">
+              <h5 class="card-title"><%= favorite_event.event.name %></h5>
+              <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= favorite_event.event.address %></p>
+            </div>
+            <%= link_to "Remove Event", favorite_event_path(favorite_event),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                   class: "btn btn-secondary w-100 delete-rs-button" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>

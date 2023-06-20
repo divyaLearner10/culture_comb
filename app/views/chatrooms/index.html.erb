@@ -1,44 +1,17 @@
-<%= link_to "New Chat",
-      new_chatroom_path,
-      class: "btn btn-primary"
-%>
+<div class="container" id="chat-index">
+  <div class="scrollable-container">
+    <h3 class="chat-heading">Messages</h3>
+    <% current_user.all_chatrooms.each do |chatroom| %>
+      <% user = current_user.who_am_i_chatting_with(chatroom) %>
+      <div class="previous-chat border mb-3">
 
-<div class="container post-index">
-  <h1>All Chats</h1>
-  <div class="col-12">
-    <div class="accordion" id="accordionExample">
-      <% @chatrooms.each do |chatroom| %>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              <%= chatroom.name %>
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-            <div class="card" id="post-card">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="card-body">
-                    <h5 class="card-title"><%= chatroom.name %></h5>
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <%= link_to "Display Chat",
-                    chatroom_path(chatroom),
-                    class: "btn btn-secondary"
-                  %>
-                  <%= link_to "Delete Chat",
-                    chatroom_path(chatroom),
-                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-                    class: "btn btn-danger"
-                  %>
-                </div>
-              </div>
-            </div>
-          </div>
+        <h5><%= link_to chatroom.name, chatroom %></h5>
+        <p><small>
+            <strong><%= user.first_name %></strong>
+            <i><%= chatroom.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+          </small></p>
+        <!--<%= link_to user.email, chatroom_path(chatroom) %>-->
       </div>
-
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>

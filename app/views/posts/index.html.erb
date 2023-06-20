@@ -13,7 +13,7 @@
             <div class="card" id="post-card">
               <div class="row">
                 <div class="col-sm-2 post-image">
-                  <%= link_to post_path(post) do %>
+                  <%= link_to city_post_path(@city, post) do %>
                     <%= cl_image_tag post.photo.key, class: "img-top", alt: post.title %>
                   <% end %>
                 </div>

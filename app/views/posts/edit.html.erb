@@ -1,8 +1,10 @@
-<h1>Post Edit Page</h1>
-<%= simple_form_for([@city, @post], html: { class: "edit-form" }) do |f|%>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :website_url %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, "Update post", class: "btn btn-primary"%>
-<% end %>
+<div class="container">
+  <h1>Post Edit Page</h1>
+  <%= simple_form_for([@city, @post], html: { class: "new-form" }) do |f|%>
+    <%= f.input :title %>
+    <%= f.input :content %>
+    <%= f.input :website_url %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, "Update post", class: "btn btn-primary"%>
+  <% end %>
+</div>

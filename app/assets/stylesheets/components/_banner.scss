@@ -1,22 +1,25 @@
-.banner {
+.cc-banner {
   background-size: 100%;
-  // background-image: url("culture.jpeg");
-  color: #FFD369;
+  color: #e9ba48;
   padding: 150px 0;
   background-repeat: no-repeat;
   height: 500px;
   text-align: center;
 }
-.culture-comb{
-  font-family: 'Playfair Display', serif;
-  font-size: 50pt;
+
+#cc-container {
+  padding: 0px;
+}
+.cc-name{
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 80px;
   text-align: center;
+  text-shadow: 1px 1px 2px #f9da01fc;
 }
-.slogan{
-  font-family: 'Playfair Display', serif;
-  font-size: 15pt;
-  text-align: center top;
+
+.cc-slogan{
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 50px;
+  text-align: center;
+  text-shadow: 1px 1px 2px #f9da01fc;
 }
-// .container{
-//   align-items: center;
-// }

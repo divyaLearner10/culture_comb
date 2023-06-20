@@ -23,6 +23,15 @@ class EventsController < ApplicationController
     elsif params[:community_id].present?
       @community = Community.find(params[:community_id])
     end
+    # @array_event = [@event]
+    @markers = @event.geocode.map do |event|
+      {
+        lat: @event.latitude,
+        lng: @event.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { event: @event}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def new
@@ -70,6 +79,17 @@ class EventsController < ApplicationController
     @event.destroy
 
     redirect_to city_events_path(@event)
+  end
+
+  def add_to_favorites
+    @event = Event.find(params[:id])
+    @favorite_event = FavoriteEvent.new(event: @event)
+    @favorite_event.user = current_user
+    if @favorite_event.save
+      redirect_to favorite_events_path, notice: 'Event added to favorites.'
+    else
+      redirect_to events_path, alert: 'Unable to add event to favorites.'
+    end
   end
 
   private

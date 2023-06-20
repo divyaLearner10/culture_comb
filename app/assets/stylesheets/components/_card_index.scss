@@ -1,0 +1,61 @@
+.index .container {
+  max-width: 80%;
+}
+
+.index .cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+}
+
+.index .card {
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  height: 441px;
+}
+
+
+.index .card-title {
+  color: #495579;
+  font-weight: bold;
+  font-family: 'Nunito';
+}
+
+.index .card-text {
+  color: #495579;
+  font-weight: bold;
+  font-family: 'Nunito';
+}
+
+.index .btn-primary {
+  color: whitesmoke;
+  padding: 8px 24px;
+  border-radius: 0 0 10px 10px;
+  font-weight: bolder;
+  background: linear-gradient(45deg,#213555, #2a569c);
+  transition: background 0.3s ease;
+  border: 1px solid #8db4f2;
+}
+
+.index .btn-primary:hover {
+  background: linear-gradient(45deg,#213555, #2a569c);
+  color: white;
+}
+
+.index img {
+  border-radius: 10px 10px 0 0;
+}
+
+
+// Smallest device
+@media(max-width: 992px) {
+  .index-renting-space .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .index-renting-space .cards {
+    grid-template-columns: 1fr;
+  }
+}

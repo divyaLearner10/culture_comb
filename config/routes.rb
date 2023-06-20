@@ -8,21 +8,21 @@ Rails.application.routes.draw do
   # users/show
   resources :users, only: [:show]
 
-  resources :attractions, only: [:index, :show, :destroy]
-  resources :communities, only: [:show, :destroy]
+  resources :attractions, only: [:index, :show, :new, :destroy]
+  resources :communities, only: [:show,:new, :destroy]
   resources :events, only: [:show, :destroy]
   resources :posts, only: [:show, :destroy]
 
   resources :favorite_categories, only: [:index]
   resources :event_categories, only: [:index]
-  resources :favorite_events, only: [:index]
+  resources :favorite_events, only: [:index, :destroy]
 
   resources :categories do
     resources :favorite_categories, only: [:new, :create]
   end
 
   resources :events, only: [:show] do
-    resources :favorite_events, only: [:new, :create]
+    resources :favorite_events, only: [:new, :create, :index]
     resources :categories, only: [:index] do
       resources :event_categories, only: [:new, :create]
     end
@@ -36,6 +36,10 @@ Rails.application.routes.draw do
       resources :events
       resources :posts
     end
+  end
+
+  resources :events do
+    post 'add_to_favorites', on: :member
   end
 
   resources :chatrooms, only: [:index, :new, :create, :show, :destroy] do

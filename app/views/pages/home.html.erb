@@ -1,7 +1,10 @@
-<div class="banner" style="background-image: url('<%= cl_image_path("banner-1_dqvkyy") %>');background-position: center bottom;">
-  <div class="container">
-    <h1 class="culture-comb">CultureComb</h1>
-    <p class= "slogan">Discover the best of your new city</p>
+
+<div class="cc-banner"
+    style="background-image: url(https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80);background-position: center bottom;">
+  <div class="container" id="cc-container">
+    <h1 class="cc-name">CULTURECOMB</h1>
+    <p class= "cc-slogan">Discover the best of your new city</p>
+
   </div>
 </div>
 
@@ -10,7 +13,9 @@
   <div class="container">
     <div class="card-description">
       <div class="card-body">
-        <h1>CultureComb</h1>
+
+        <h1>CULTURECOMB</h1>
+
         <p>CultureComb is designed to help expats feel at home in their new city. As an expat, it can be overwhelming to navigate a new city. But with CultureComb, you'll have access to the latest information and attractions, making it easy for you to immerse yourslef in your new home. Discover hiden gems in any city with CultureComb.</p>
         </p>
       </div>
@@ -25,7 +30,7 @@
       <div class="cards overflow-hidden mb-5 mt-5 border-0 ">
 
       <% @cities.each do |city| %>
-        <%= link_to city_path(city) do%>
+        <%= link_to city_path(city), class:"text-decoration-none" do%>
         <% if city.photo.attached? %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path city.photo.key, height: 300, crop: :fill %>')">
           <%= city.name %>
