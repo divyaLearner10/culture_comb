@@ -1,24 +1,63 @@
-<div class="index-renting-space">
-  <div class="container">
-    <h1 style="text-align: center;">All Cities</h1>
-    <div class="row">
-      <div class="cards">
-        <% @cities.each do |city| %>
-          <div class="card" >
-            <%= link_to city_path(city) do %>
-              <%= cl_image_tag city.photo.key, class: "img-fluid", alt: city.name %>
-            <% end %>
-            <div class="card-body">
-              <h5 class="card-title"><%= city.name %></h5>
-              <p class="card-text mb-1"></i> <%= city.description %></p>
-            </div>
-            <% if current_user.admin? %>
-            <a href=<%= edit_city_path(city) %> class="btn btn-secondary">Update City</a>
-            <a href=<%= city_path(city) %> class="btn btn-danger">Delete City</a>
-            <% end %>
+<div class="container">
+  <div class="index">
+    <% if current_user.admin? %>
+      <div class="row">
+        <div class="col-12 col-lg-9 border events-left">
+          <div class="events-heading border mt-3">
+            <h3>Eventopia: Unleash the Experience</h3>
           </div>
-        <% end %>
+
+          <div class="cards">
+          <% @cities.each do |city| %>
+            <div class="card" >
+              <%= link_to city_path(city) do %>
+                <%= cl_image_tag city.photo.key, class: "card-img-top event-card-img", alt: city.name %>
+              <% end %>
+
+              <div class="card-body">
+                <h5 class="card-title" style="text-align:center;"><%= city.name %></h5>
+                <p class="card-text"><i class="fa-regular fa-rectangle-list"></i> <%= city.description %></p>
+              </div>
+
+              <div class="icon-actions">
+                <a href=<%= edit_city_path(city) %>><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href=<%= city_path(city) %>><i class="fa-solid fa-trash-can"></i></a>
+              </div>
+
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-12 col-lg-3 border events-right">
+          <div class="event-options">
+            <div class="new-event border">
+              <h5>Expand the Excitement: Add a New Attraction to the Lineup!</h5>
+              <i class="fa-regular fa-square-plus fa-beat"></i></i> <%= link_to 'Add New city', new_city_path %>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <div class="row">
+        <div class="col-12 col-lg-12 border events-left">
+          <div class="events-heading border mt-3">
+            <h3>Eventopia: Unleash the Experience</h3>
+          </div>
+          <div class="cards">
+          <% @cities.each do |city| %>
+            <div class="card" >
+              <%= link_to city_path(city) do %>
+                <%= cl_image_tag city.photo.key, class: "card-img-top event-card-img", alt: city.name %>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title" style="text-align:center;"><%= city.name %></h5>
+                <p class="card-text"><i class="fa-regular fa-rectangle-list"></i> <%= city.description %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
   </div>
 </div>
