@@ -25,9 +25,9 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <% if current_user.admin? %>
                 <%= link_to "All Cities", cities_path, class: "dropdown-item" %>
-                <%= link_to "All Attractions", attractions_path, class: "dropdown-item" %>
-                <%= link_to "All Communities", "#", class: "dropdown-item" %>
-                <%= link_to "Add new city", new_city_path, class: "dropdown-item" %>
+                <%= link_to "＋ new city", new_city_path, class: "dropdown-item" %>
+                <%# <%=link_to "All Attractions", attractions_path, class: "dropdown-item" %>
+                <%# <%=link_to "All Communities","#" , class: "dropdown-item"%>
                 <%#link_to "Add new community", new_city_community_path , class: "dropdown-item"%>
                 <%# link_to "Add new attraction", new_attraction_path, class: "dropdown-item" %>
               <% else %>
