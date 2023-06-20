@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="card-profile ">
+      <h2>My profile</h2>
+    <%= cl_image_tag current_user.photo.key, class: "avatar" %>
+    <%# <img class="avatar" src="http://res.cloudinary.com/dwuazcbx4/image/upload/v1/development/g2egdew20esdjwl9xejmbzbatoqy" alt=""> %>
+    <div class="card-info">
+     <h1><i class="material-icons"></i><%= @user.first_name %> <%= @user.last_name %></h1>
+     <a class="btn btn flat" href="" style="
+    background-color: white ">Edit</a>
+    </div>
+    <div class="user info">
+      <div>
+        <p><%= @user.email %></p>
+      </div>
+      <div>
+        <p><%= @user.nationality %></p>
+      </div>
+      <div>
+        <p><%= @user.current_city %></p>
+      </div>
+    </div>
+  </div>
+
+</div>
