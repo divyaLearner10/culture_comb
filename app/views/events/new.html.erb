@@ -1,14 +1,19 @@
-<div class="container">
-<h1>Add new TEST</h1>
-<%= simple_form_for([@city,@community,@event], html: { class: "new-form" }) do |f|%>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :website_url %>
-  <%= f.input :date %>
-  <%= f.input :address %>
-  <%= f.input :phone_number %>
-  <%= f.input :start_time %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit, "Add event", class: "btn btn-primary w-100 new-form-submit"%>
-<% end %>
+<div class="banner-add" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80);">
+
+  <div class="container mt-1">
+    <div class></div>
+  </div>
+
+    <h1>Add new Event</h1>
+    <%= simple_form_for([@city,@community,@event], html: { class: "new-form" }) do |f|%>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :website_url %>
+      <%= f.input :date %>
+      <%= f.input :address %>
+      <%= f.input :phone_number %>
+      <%= f.input :start_time %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.button :submit, "Add event", class: "btn btn-primary w-100 new-form-submit"%>
+    <% end %>
 </div>
