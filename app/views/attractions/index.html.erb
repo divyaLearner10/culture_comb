@@ -32,8 +32,9 @@
         <div class="col-12 col-lg-3 border events-right">
           <div class="event-options">
             <div class="new-event border">
-              <h5>Expand the Excitement: Add a New Attraction to the Lineup!</h5>
-              <i class="fa-regular fa-square-plus fa-beat"></i></i> <%= link_to 'Add New attraction', new_city_attraction_path %>
+              <h5 style="color:rgb(6, 128, 128);">Expand the Excitement: Add a New Attraction to the Lineup!</h5>
+              <!--<i class="fa-regular fa-square-plus fa-beat"></i></i> <%= link_to 'Add New attraction', new_city_attraction_path %>-->
+              <%= render "new" %>
             </div>
           </div>
 
@@ -61,21 +62,15 @@
               <%= link_to city_attraction_path(@city, attraction) do %>
                 <%= cl_image_tag attraction.photo.key, class: "card-img-top event-card-img", alt: attraction.name %>
               <% end %>
-
-
               <div class="card-body">
                 <h5 class="card-title"><%= attraction.name %></h5>
                 <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= attraction.address %></p>
                 <p class="card-text"><i class="fa-solid fa-clock"></i> <%= attraction.opening_hours %></p>
               </div>
-
-
-
             </div>
           <% end %>
         </div>
       </div>
     <% end %>
-
   </div>
 </div>

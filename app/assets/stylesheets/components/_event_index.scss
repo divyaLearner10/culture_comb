@@ -75,6 +75,7 @@ $shadow-sm: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
 .events-right {
   background: linear-gradient(45deg,#f7e386, #e3cf73);
   box-shadow: $shadow-md;
+  padding-bottom: 12px;
 }
 
 .favorite-events, .new-event {
