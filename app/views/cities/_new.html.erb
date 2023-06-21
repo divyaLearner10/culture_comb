@@ -1,0 +1,7 @@
+<%= simple_form_for(@city, html: { class: "new-form" }) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description, as: :text, input_html: { rows: 4 } %>
+  <%= f.input :photo, as: :file %>
+
+  <%= f.button :submit, "Add city", class: "btn btn-primary w-100 new-form-submit"%>
+<% end %>

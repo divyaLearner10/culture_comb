@@ -1,14 +1,27 @@
-<div class="container">
-<h1>Add a New Event</h1>
-<%= simple_form_for([@city,@community,@event], html: { class: "new-form" }) do |f|%>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :website_url %>
-  <%= f.input :date %>
-  <%= f.input :address %>
-  <%= f.input :phone_number %>
-  <%= f.input :start_time %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit, "Add event", class: "btn btn-primary w-100 new-form-submit"%>
-<% end %>
-</div>
+
+<div class="edit-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+        url('<%= cl_image_path(@city.photo.key) %>');">
+  <div class="container">
+   <div class="row" id="">
+      <div class="col-12 col-lg-6" id="description" style="margin-top: 100px;padding-right: 50px;">
+        <h1 style="color:white;">  Put your event in the spotlight! Add it to our platform and captivate audiences with a memorable experience <span style="color: #FFD369; font-weight: bolder">So what are you waiting for? Start creating your event today!</span></h1>
+      </div>
+      <div class="col-12 col-lg-6" id="form" style="padding-left: 50px;" >
+        <div class="container border mb-5 p-4 add-event">
+          <%# <h1>Add new Event</h1> %>
+          <%= simple_form_for([@city,@community,@event], html: { class: "new-form" }) do |f|%>
+            <%= f.input :name %>
+            <%= f.input :description %>
+            <%= f.input :website_url %>
+            <%= f.input :date, label:"Event Date", start_year: Time.current.year %>
+            <%= f.input :address %>
+            <%= f.input :phone_number %>
+            <%= f.input :start_time %>
+            <%= f.input :photos, label: "Upload Images", as: :file, input_html: { multiple: true } %>
+            <%= f.button :submit, "Add event", class: "btn btn-primary w-100 new-form-submit"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<div>

@@ -38,7 +38,7 @@
                       <% attractions_slice.each do |attraction| %>
                         <div class="col-md-4 mb-3">
                           <div class="card" id="city-attraction-card">
-                            <%= link_to attraction_path(attraction) do %>
+                            <%= link_to city_attraction_path(@city, attraction) do %>
                               <%= cl_image_tag attraction.photo.key, class: "img-fluid", alt: attraction.name %>
                             <% end %>
 

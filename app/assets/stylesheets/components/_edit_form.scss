@@ -1,0 +1,120 @@
+$shadow-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-sm: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+
+.edit-banner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 150px 0;
+  opacity: 0.9;
+  padding-top: 50px;
+}
+
+.edit-banner .container {
+  max-width: 50%;
+}
+
+.edit-banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 50px;
+  font-weight: bolder;
+  font-family: 'Fira Sans', sans-serif;
+  padding: 20px;
+  margin: 10px;
+}
+
+.edit-banner p {
+  color: white;
+  opacity: .9;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bolder;
+  padding: 20px;
+  margin: 10px;
+  font-size: 34px;
+}
+
+.edit-form-heading {
+  border-radius: 10px;
+  box-shadow: $shadow-md;
+  background: linear-gradient(45deg,#707173, #8e8f91);
+  margin-bottom: 25px;
+}
+
+.edit-form-heading h3{
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 32px;
+  color: white;
+  text-align: center;
+  padding: 5px;
+
+  margin-bottom: 0px;
+}
+
+.edit-form label {
+  color: #ffffff;
+  font-family: 'Fira Sans', sans-serif;
+
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 28px;
+
+}
+
+.edit-form input {
+  background-color: #E6E6E6;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+
+.edit-form textarea {
+  background-color: #E6E6E6;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.edit-form .edit-form-submit {
+  color: whitesmoke;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bolder;
+  background: linear-gradient(45deg,#3d3f44, #8e8f91);
+  transition: background 0.3s ease;
+  border: 1px solid #8e8f91;
+  font-size: 24px;
+}
+
+.edit-form .edit-form-submit:hover {
+  background: linear-gradient(45deg,#6b6c71, #cdcfd3);
+  color: white;
+}
+
+.delete-rs-heading {
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(44, 49, 107, 0.2);
+  font-size: 28px;
+  padding-bottom: 15px;
+}
+
+.edit-form .delete-rs-button {
+  color: whitesmoke;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bolder;
+  background: linear-gradient(45deg, #f11f1f, #ec5156);
+  transition: background 0.3s ease;
+  border: 1px solid #eb4747;
+}
+
+.edit-form .delete-rs-button:hover {
+  background: linear-gradient(45deg, #f11f1f, #ec5156);
+  color: white;
+}

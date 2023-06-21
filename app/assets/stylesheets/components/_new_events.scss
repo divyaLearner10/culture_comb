@@ -1,19 +1,25 @@
-.add-city {
-  background-color: rgb(241, 237, 232);
+.add-event {
+  background-color: #D9D7CD;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
+// .h1 {
+//   margin: 10;
+//   padding: 20;
+// }
+
 
 .new-form label {
   font-family: 'Fira Sans', sans-serif;
   font-weight: bold;
+  font-size: larger;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 18px;
   color: #3d3f44;
 }
 
 .new-form legend {
-  color: #3d3f44;
+  color: white;
   font-family: 'Fira Sans', sans-serif;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
