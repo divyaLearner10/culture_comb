@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   def show
     @city = City.find(params[:city_id])
+    @community = Community.find(params[:community_id])
     @posts = @city.posts
   end
 

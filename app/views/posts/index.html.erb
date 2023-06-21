@@ -10,7 +10,7 @@
       <% @posts.each do |post| %>
         <div class="card" >
 
-            <%= link_to city_post_path(@city, post) do %>
+            <%= link_to city_community_post_path(@city, @community, post) do %>
               <%= cl_image_tag post.photo.key, class: "card-img-top event-card-img", alt: post.title %>
             <% end %>
 
