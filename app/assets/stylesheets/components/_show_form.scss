@@ -19,20 +19,20 @@ $shadow-sm: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
 .show-form-heading {
   border-radius: 10px;
   box-shadow: $shadow-md;
-  background: linear-gradient(45deg,#ccd0d4, #8e8f91);
+  background: linear-gradient(45deg,#f7e386, #efefee);
   margin-bottom: 25px;
 }
 
 .show-form-img {
   border-radius: 10px;
   box-shadow: $shadow-lg;
-
+  padding: 0px;
 }
 
 .show-form-heading h3{
   font-family: 'Fira Sans', sans-serif;
   font-size: 32px;
-  color: white;
+  color: #3d3f44;
   text-align: center;
   padding: 5px;
 
@@ -42,25 +42,26 @@ $shadow-sm: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
 .show-form .name-show {
   color: #3d3f44;
   font-family: 'Fira Sans', sans-serif;
-  font-weight: bolder;
+  font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 40px;
 }
 
-.show-form .address-show {
-  color: #3d3f44;
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: bolder;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 30px;
-}
-
 .show-form .info-show {
-  color: #3d3f44;
+  color:  rgb(6, 128, 128);
   font-family: 'Fira Sans', sans-serif;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 24px;
+}
+
+.show-form a{
+  text-decoration: none;
+}
+
+.show-form a:hover{
+  color:  rgb(14, 170, 170);
+  transition:  0.3s ease;
 }
 
 .show-form .description-show {
@@ -68,7 +69,7 @@ $shadow-sm: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
   font-family: 'Fira Sans', sans-serif;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 24px;
+  font-size: 26px;
 }
 
 .show-form  {
@@ -86,14 +87,14 @@ $shadow-sm: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 30px;
-  padding-bottom: 15px;
+
 }
 
 .show-map-section .container {
   margin: 0 auto;
   padding-left: 0px;
   padding-right: 0px;
-
+  padding-top: 10px;
 }
 
 .show-map-section .map-show {
@@ -103,10 +104,34 @@ $shadow-sm: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
   box-shadow: $shadow-lg;
 }
 
-.show-form {
-  color: white;
+.dive-back {
+  margin-top: 20px;
+  padding: 15px;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(45deg,#f7e386, #efefee);
+  box-shadow: $shadow-md;
   font-family: 'Fira Sans', sans-serif;
-  font-weight: bolder;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 24px;
+}
+
+.dive-back i{
+  color: rgb(6, 128, 128);
+  font-weight: bold;
+}
+.dive-back h5 {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+  color: #3d3f44;
+}
+.dive-back a {
+  text-decoration: none;
+  text-align: center;
+  color: rgb(6, 128, 128);
+  font-weight: bold;
+}
+
+.dive-back a:hover{
+  color:  rgb(14, 170, 170);
+  transition:  0.3s ease;
 }
