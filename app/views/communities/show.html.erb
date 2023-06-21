@@ -1,82 +1,107 @@
-<div class="container">
-<% if @community.name == "Brazilian" %>
- <h1><%= "Welcome to the 🇧🇷 " + @community.name + " community!" %></h1>
-<% else %>
- <h1><%= "Welcome to the 🇫🇷 " + @community.name + " community!" %></h1>
-<% end %>
-<!-- Link to create a new event -->
-<a href="<%= new_city_community_event_path(@community.city, @community) %>"> ＋ New Event </a>
-<!-- Link to create a new post -->
-<a href="<%= new_city_community_post_path(@community.city, @community) %>"> ＋ New Post</a>
-
-<div class="row">
-  <div class="cards">
-    <% @events.each do |event| %>
-      <div class="card" >
-        <% if event.photos.any? %>
-          <%= link_to city_community_event_path(@city,@community, event) do %>
-            <%= cl_image_tag event.photos.last.key, class: "card-img-top event-card-img", alt: event.name %>
-          <% end %>
-        <% else %>
-          <!-- Display a placeholder image or default image if no photos are available -->
-          <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
-        <% end %>
-
-        <div class="card-body">
-          <h5 class="card-title"><%= event.name %></h5>
-          <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= event.address %></p>
-        </div>
-        <a href=<%= edit_city_event_path(@city, event) %> class="btn btn-secondary">Update Event</a>
-        <a href=<%= event_path(event) %> class="btn btn-danger">Delete Event</a>
-      </div>
+<div class="city-show">
+<%# Banner section %>
+<div class="city-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path(@city.photo.key) %>');">
+  <div class="container">
+    <% if @community.name == "Brazilian" %>
+      <h1 class="city-name"><%= "🇧🇷 " + @community.name + " community in " + @city.name %></h1>
+    <% else %>
+      <h1 class="city-name"><%= "🇫🇷 " + @community.name + " community in " + @city.name %></h1>
     <% end %>
+    <p class="city-name"><%= @community.description %></p>
   </div>
 </div>
-<div class="container post-index">
-  <h1>All Posts</h1>
-  <div class="col-12">
-    <div class="accordion" id="accordionExample">
-      <% @posts.each do |post| %>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              <%= post.title %>
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-            <div class="card" id="post-card">
-              <div class="row">
-                <div class="col-sm-2 post-image">
-                  <%= link_to city_post_path(@city, post) do %>
-                    <%= cl_image_tag post.photo.key, class: "img-top", alt: post.title %>
-                  <% end %>
-                </div>
-                <div class="col-sm-8">
-                  <div class="card-body">
-                    <h5 class="card-title"><%= post.title %></h5>
-                    <p class="card-text"><%= post.content %></p>
-                    <p class="card-text"><%= post.website_url %></p>
+
+</div>
+
+<%# Events section %>
+<div class="city-events mt-2 mb-3">
+  <div class="pt-5 pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <% @events.limit(6).each_slice(3).with_index do |events_slice, index| %>
+                <div class="carousel-item <%= 'active' if index == 0 %>">
+                  <div class="row">
+                    <% events_slice.each do |event| %>
+                      <div class="col-md-4 mb-3">
+                        <div class="card" id="city-event-card">
+                          <% if event.photos.any? %>
+                            <%= link_to city_community_event_path(@city, @community, event) do %>
+                              <%= cl_image_tag event.photos.last.key, class: "img-fluid", alt: event.name %>
+                            <% end %>
+                          <% else %>
+                            <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
+                          <% end %>
+                          <div class="card-body">
+                            <h3 class="card-title"><%= event.name %></h3>
+                            <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= event.address %></p>
+                            <p class="card-text"><i class="fa-solid" ></i> <%= event.date %></p>
+                          </div>
+                          <% if current_user.admin? %>
+                            <div class="card-footer">
+                              <%= link_to "Update Event", edit_city_event_path(@city, event), class: "btn btn-secondary" %>
+                              <%= link_to "Delete Event", event_path(event), class: "btn btn-danger" %>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    <% end %>
                   </div>
                 </div>
-                <div class="col-sm-2">
-                  <%= link_to "Update Post",
-                    edit_city_post_path(@city, post),
-                    class: "btn btn-secondary"
-                  %>
-                  <%= link_to "Delete Post",
-                    post_path(post),
-                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-                    class: "btn btn-danger"
-                  %>
-                </div>
-              </div>
+              <% end %>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon carousel-dark" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
+        </div>
       </div>
-
-      <% end %>
+    </div>
+    <div class="d-grid gap-2 col-6 justify-content-center text-center mx-auto mt-3">
+      <%= link_to "All Events", city_events_path(@city), class: "btn-all-events" %>
     </div>
   </div>
 </div>
 
+<%# Posts section %>
+<div class="city-posts">
+  <div class="container city-posts">
+    <h1 class="mb-5">Community Posts</h1>
+    <% @posts.each do |post| %>
+      <div class="card mb-3 m-auto" id="post-card">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <% if post.photo.present? %>
+              <%= link_to city_community_post_path(@city, @community, post) do %>
+                <div class="card-img-wrapper">
+                  <%= cl_image_tag post.photo.key, class: "card-img", alt: post.title %>
+                </div>
+              <% end %>
+            <% else %>
+              <%= image_tag "placeholder.jpg", class: "card-img", alt: "Placeholder Image" %>
+            <% end %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body text-left py-6">
+              <h4 class="card-title"><%= post.title %></h4>
+              <p class="card-text"><%= post.content %></p>
+              <br>
+              <p class="card-text"><%= post.user.username %> on <%= Post.last.created_at.strftime("%a, %d %b %Y %H:%M:%S") %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="d-grid gap-2 col-6 justify-content-center text-center mx-auto mt-3">
+      <%= link_to "All Posts", city_posts_path(@city), class: "btn-all-events" %>
+    </div>
+  </div>
+</div>
 </div>
