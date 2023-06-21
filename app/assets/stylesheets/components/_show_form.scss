@@ -1,0 +1,112 @@
+$shadow-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-sm: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+
+.show-banner {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 150px 0;
+  opacity: 0.9;
+  padding-top: 50px;
+}
+
+.show-banner .container {
+  max-width: 80%;
+}
+
+.show-form-heading {
+  border-radius: 10px;
+  box-shadow: $shadow-md;
+  background: linear-gradient(45deg,#ccd0d4, #8e8f91);
+  margin-bottom: 25px;
+}
+
+.show-form-img {
+  border-radius: 10px;
+  box-shadow: $shadow-lg;
+
+}
+
+.show-form-heading h3{
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 32px;
+  color: white;
+  text-align: center;
+  padding: 5px;
+
+  margin-bottom: 0px;
+}
+
+.show-form .name-show {
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+}
+
+.show-form .address-show {
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 30px;
+}
+
+.show-form .info-show {
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 24px;
+}
+
+.show-form .description-show {
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 24px;
+}
+
+.show-form  {
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 24px;
+}
+
+
+.map-heading {
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 30px;
+  padding-bottom: 15px;
+}
+
+.show-map-section .container {
+  margin: 0 auto;
+  padding-left: 0px;
+  padding-right: 0px;
+
+}
+
+.show-map-section .map-show {
+  width: inherit;
+  height: 500px;
+  border-radius: 10px;
+  box-shadow: $shadow-lg;
+}
+
+.show-form {
+  color: white;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 24px;
+}
