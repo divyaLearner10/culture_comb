@@ -1,14 +1,19 @@
-<div class="container">
-<h1>Edit Event</h1>
-<%= simple_form_for([@city, @event], html: { class: "edit-form" }) do |f|%>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :website_url %>
-  <%= f.input :date %>
-  <%= f.input :address %>
-  <%= f.input :phone_number %>
-  <%= f.input :start_time %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit, "Update event", class: "btn btn-primary"%>
-<% end %>
+<div class="edit-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+        url('<%= cl_image_path(@city.photo.key) %>');">
+  <div class="container">
+    <div class="edit-form-heading mt-3">
+      <h3>Revamp Your Event: Ignite Excitement!</h3>
+    </div>
+    <%= simple_form_for([@city, @event], html: { class: "edit-form" }) do |f|%>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :website_url %>
+      <%= f.input :date , label: "Event Date" %>
+      <%= f.input :address %>
+      <%= f.input :phone_number %>
+      <%= f.input :start_time %>
+      <%= f.input :photos , label: "Upload Images", as: :file, input_html: { multiple: true } %>
+      <%= f.button :submit, "Update event", class: "btn btn-primary w-100 edit-form-submit"%>
+    <% end %>
+  </div>
 </div>
