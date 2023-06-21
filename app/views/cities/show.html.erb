@@ -18,7 +18,6 @@
         <% if current_user.admin? %>
         <%= link_to '＋', new_city_community_path(@city), class: "btn-all-events" %>
         <% end %>
-        <%= link_to "All Communities", city_communities_path(@city), class: "btn-all-events" %>
       </div>
     </div>
   </div>
@@ -99,34 +98,6 @@
       </div>
       <div class="d-grid gap-2 col-6 justify-content-center text-center mx-auto mt-3">
         <%= link_to "All Events", city_events_path(@city), class: "btn-all-events" %>
-      </div>
-    </div>
-
-  </div>
-
-  <%# Posts section %>
-  <div class="city-post">
-    <div class="container city-posts">
-      <h1 class="mb-5">Posts from <%= @city.name%></h1>
-      <% @posts.each do |post| %>
-        <div class="card mb-3 m-auto" id="post-card">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <%= cl_image_tag post.photo.key, class: "img-fluid", id: "post-image" %>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h4 class="card-title"><%= post.title %></h4>
-                <p class="card-text">
-                  <%= post.content %>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      <div class="d-grid gap-2 col-6 justify-content-center text-center mx-auto mt-3">
-        <%= link_to "All Posts", city_posts_path(@city), class: "btn-all-events" %>
       </div>
     </div>
 
