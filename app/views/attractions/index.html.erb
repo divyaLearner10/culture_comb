@@ -8,27 +8,27 @@
           </div>
 
           <div class="cards">
-          <% @attractions.each do |attraction| %>
-            <div class="card" >
-              <%= link_to city_attraction_path(@city, attraction) do %>
-                <%= cl_image_tag attraction.photo.key, class: "card-img-top event-card-img", alt: attraction.name %>
-              <% end %>
+            <% @attractions.each do |attraction| %>
+              <div class="card" >
+                <%= link_to city_attraction_path(@city, attraction) do %>
+                  <%= cl_image_tag attraction.photo.key, class: "card-img-top event-card-img", alt: attraction.name %>
+                <% end %>
 
-              <div class="card-body">
-                <h5 class="card-title"><%= attraction.name %></h5>
-                <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= attraction.address %></p>
-                <p class="card-text"><i class="fa-solid fa-clock"></i> <%= attraction.opening_hours %></p>
+                <div class="card-body">
+                  <h5 class="card-title"><%= attraction.name %></h5>
+                  <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= attraction.address %></p>
+                  <p class="card-text"><i class="fa-solid fa-clock"></i> <%= attraction.opening_hours %></p>
+                </div>
+
+                <div class="icon-actions">
+                  <a href=<%= edit_city_attraction_path(@city, attraction) %>><i class="fa-solid fa-pen-to-square"></i></a>
+                  <a href=<%= attraction_path(attraction) %>><i class="fa-solid fa-trash-can"></i></a>
+                </div>
+
               </div>
-
-              <div class="icon-actions">
-                <a href=<%= edit_city_attraction_path(@city, attraction) %>><i class="fa-solid fa-pen-to-square"></i></a>
-                <a href=<%= attraction_path(attraction) %>><i class="fa-solid fa-trash-can"></i></a>
-              </div>
-
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
-
         <div class="col-12 col-lg-3 border events-right">
           <div class="event-options">
             <div class="new-event border">
