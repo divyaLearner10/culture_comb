@@ -6,6 +6,9 @@ class AttractionsController < ApplicationController
     if params[:city_id].present?
       @city = City.find(params[:city_id])
       @attractions = @city.attractions
+
+      @attraction = Attraction.new
+
       # map settup for attractions
       @markers = @attractions.geocoded.map do |attraction|
         {
