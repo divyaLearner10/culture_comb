@@ -8,6 +8,7 @@ class CommunitiesController < ApplicationController
 
   def show
     @city = City.find(params[:city_id])
+    @community = @city.communities.find(params[:id])
     @events = @community.events
     @posts = @community.posts
   end
