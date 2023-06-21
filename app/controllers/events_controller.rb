@@ -95,10 +95,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # def favorite_events
-  #   @favorite_events = current_user.favorite_events
-  # end
-
   private
 
   def set_event

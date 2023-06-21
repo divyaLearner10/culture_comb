@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   def index
     @city = City.find(params[:city_id])
     @posts = @city.posts
+    @community = Community.find(params[:community_id])
+    @post = Post.new
   end
 
   def show
@@ -27,7 +29,7 @@ class PostsController < ApplicationController
       @community = Community.find(params[:community_id])
       @post.community = @community
       @post.save!
-      redirect_to city_community_path(@city, @community)
+      redirect_to city_community_posts_path(@city, @community)
     else
       @post.save!
       redirect_to city_posts_path
