@@ -127,7 +127,8 @@ users_data = [
     username: "alexthelion",
     nationality: "Brazilian",
     current_city: "Porto",
-    photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682538988/anspbresvpivccfpk9ul.jpg"
+    photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682538988/anspbresvpivccfpk9ul.jpg",
+    admin: false
   },
   {
     first_name: "Divya",
@@ -137,7 +138,8 @@ users_data = [
     username: "divyadreamer",
     nationality: "Indian",
     current_city: "Paris",
-    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686904824/Divya_profile_cxh5m5.png"
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686904824/Divya_profile_cxh5m5.png",
+    admin: false
   },
   {
     first_name: "Christophe",
@@ -147,7 +149,8 @@ users_data = [
     username: "cdeissenberg",
     nationality: "French",
     current_city: "Paris",
-    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686904824/Chris_profile_wnhuli.jpg"
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686904824/Chris_profile_wnhuli.jpg",
+    admin: true
   },
   {
     first_name: "Karina",
@@ -157,7 +160,8 @@ users_data = [
     username: "karinab",
     nationality: "Mexican",
     current_city: "Porto",
-    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686904824/Kar_profile_kwsl9q.jpg"
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686904824/Kar_profile_kwsl9q.jpg",
+    admin: false
   }
 ]
 

@@ -39,6 +39,7 @@ class AttractionsController < ApplicationController
   end
 
   def show
+    @city = City.find(params[:city_id])
     @markers = @attraction.geocode.map do
       {
         lat: @attraction.latitude,
