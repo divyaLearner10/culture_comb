@@ -1,9 +1,14 @@
-<div class="container">
-  <h1>Edit Cities Page</h1>
-  <%= simple_form_for(@city, html: { class: "new-form" }) do |f|%>
-    <%= f.input :name %>
-    <%= f.input :description, as: :text, input_html: { rows: 4 } %>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit, "Update city", class: "btn btn-primary w-100 new-form-submit"%>
-  <% end %>
+<div class="edit-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+        url('<%= cl_image_path(@city.photo.key) %>');">
+  <div class="container">
+    <div class="edit-form-heading mt-3">
+      <h3>Revive and Edit: Transform Your City!</h3>
+    </div>
+    <%= simple_form_for(@city, html: { class: "edit-form" }) do |f|%>
+      <%= f.input :name %>
+      <%= f.input :description, as: :text, input_html: { rows: 4 } %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, "Update city", class: "btn btn-primary w-100 edit-form-submit"%>
+    <% end %>
+  </div>
 </div>
