@@ -111,6 +111,60 @@
   overflow-y: scroll; /* Enable vertical scrollbar */
 }
 
+
+.chat-new-form {
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+
+  h4 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 28px;
+    color: rgb(6, 128, 128);
+    font-weight: bold;
+    text-align: center;
+  }
+
+  input {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  label {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: bold;
+    font-size: larger;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 20px;
+    color: #3d3f44;
+  }
+
+  .submit {
+    color: whitesmoke;
+    padding: 8px 24px;
+    border-radius: 4px;
+    font-weight: bolder;
+    background: linear-gradient(45deg,#3d3f44, #8e8f91);
+    transition: background 0.3s ease;
+    border: 1px solid #8e8f91;
+    font-size: 20px;
+  }
+
+  .submit:hover {
+    background: linear-gradient(45deg,#6b6c71, #cdcfd3);
+    color: white;
+  }
+
+  .chat-radio-button input{
+    font-size: 20px;
+    color: #3d3f44;
+    font-weight: bold;
+  }
+}
+
+
+
 /* Style the scrollbar */
 .scrollable-container::-webkit-scrollbar {
   width: 7px; /* Set the width of the scrollbar */
