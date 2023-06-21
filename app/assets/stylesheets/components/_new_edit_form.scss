@@ -5,8 +5,8 @@
 }
 
 .new-form label {
-  color: #1d2f4c;
-  font-family: 'Nunito';
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 18px;
@@ -30,18 +30,18 @@
   padding: 8px 24px;
   border-radius: 4px;
   font-weight: bolder;
-  background: linear-gradient(45deg, #213555, #5180cb);
+  background: linear-gradient(45deg,#3d3f44, #8e8f91);
   transition: background 0.3s ease;
   border: 1px solid #8db4f2;
 }
 
 .new-form .new-form-submit:hover {
-  background: linear-gradient(45deg, #213555, #5180cb);
+  background: linear-gradient(45deg,#6b6c71, #cdcfd3);
   color: white;
 }
 
 .delete-rs-heading {
-  color: #213555;
+  color: #3d3f44;
   font-family: 'Nunito';
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(44, 49, 107, 0.2);

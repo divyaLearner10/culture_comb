@@ -3,9 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @city = City.find(params[:city_id])
-    # @community = Community.find(params[:community_id])
     @events = @city.events
-
     if params[:query].present?
       @events = Event.search_by_community(params[:query])
     end

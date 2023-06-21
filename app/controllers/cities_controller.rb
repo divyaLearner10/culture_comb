@@ -8,6 +8,7 @@ class CitiesController < ApplicationController
 
   def index
     @cities = City.all
+    @city = City.new
   end
 
   def show
