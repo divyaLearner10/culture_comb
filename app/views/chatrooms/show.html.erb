@@ -3,7 +3,7 @@
             data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
 
   <% user = current_user.who_am_i_chatting_with(@chatroom) %>
-  <h2><%= cl_image_tag user.photo.key, class: "avatar"%><%= user.first_name %></h1>
+  <h2><%= cl_image_tag user.photo.key, class: "avatar"%> <%= user.first_name %></h1>
 
    <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
@@ -11,7 +11,7 @@
     <% end %>
   </div>
 
-   <%= simple_form_for [@chatroom, @message],
+  <%= simple_form_for [@chatroom, @message],
     html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
   %>
   <%= f.input :content,
@@ -19,6 +19,6 @@
     placeholder: "Write your message...",
     wrapper_html: {class: "flex-grow-1"}
   %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <%= f.submit "Send", class: "btn btn-primary chat-submit-form mb-3" %>
 <% end %>
 </div>
