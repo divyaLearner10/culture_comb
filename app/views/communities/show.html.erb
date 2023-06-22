@@ -24,7 +24,7 @@
             <% if post.photo.present? %>
               <%= link_to city_community_post_path(@city, @community, post) do %>
                 <div class="card-img-wrapper">
-                  <%= cl_image_tag post.photo.key, class: "card-img", alt: post.title %>
+                  <%= cl_image_tag post.photo.key, class: "card-img rounded", alt: post.title %>
                 </div>
               <% end %>
             <% else %>
@@ -36,7 +36,7 @@
               <h4 class="card-title"><%= post.title %></h4>
               <p class="card-text"><%= post.content %></p>
               <br>
-              <p class="card-text"><%= post.user.username %> on <%= Post.last.created_at.strftime("%a, %d %b %Y %H:%M:%S") %></p>
+              <p class="card-text"><%= post.user.username %> on <%= Post.last.created_at.strftime("%a, %d %b %Y") %></p>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@
                         <div class="card" id="city-event-card">
                           <% if event.photos.any? %>
                             <%= link_to city_community_event_path(@city,@community,event) do %>
-                              <%= cl_image_tag event.photos.last.key, class: "img-fluid", alt: event.name %>
+                              <%= cl_image_tag event.photos.last.key, class: "img-fluid rounded", alt: event.name %>
                             <% end %>
                           <% else %>
                             <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
@@ -74,6 +74,7 @@
                             <h3 class="card-title"><%= event.name %></h3>
                             <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= event.address %></p>
                             <p class="card-text"><i class="fa-solid" ></i> <%= event.date %></p>
+                            <p class="card-text"><i class="fa-solid"></i> <%= event.start_time.strftime("%H:%M") %></p>
                           </div>
                           <% if current_user.admin? %>
                             <div class="card-footer">
