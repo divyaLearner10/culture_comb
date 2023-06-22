@@ -1,108 +1,80 @@
-<div class="city-show">
-<%# Banner section %>
-<div class="city-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path(@city.photo.key) %>');">
-  <div class="container">
-    <% if @community.name == "Brazilian" %>
-      <h1 class="city-name"><%= "🇧🇷 " + @community.name + " community in " + @city.name %></h1>
-    <% else %>
-      <h1 class="city-name"><%= "🇫🇷 " + @community.name + " community in " + @city.name %></h1>
-    <% end %>
-    <p class="city-name"><%= @community.description %></p>
+<div class="community-show">
+  <%# Banner section %>
+  <div class="community-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path(@city.photo.key) %>');">
+    <div class="container">
+      <h1><%= @community.name + " community in " + @city.name %></h1>
+      <p><%= @community.description %></p>
+    </div>
   </div>
-</div>
 
-</div>
-
-<%# Posts section %>
-<div class="city-posts">
-  <div class="container city-posts">
-    <h1 class="mb-5">Posts</h1>
-    <% @posts.each do |post| %>
-      <div class="card mb-3 m-auto" id="post-card">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <% if post.photo.present? %>
-              <%= link_to city_community_post_path(@city, @community, post) do %>
-                <div class="card-img-wrapper">
-                  <%= cl_image_tag post.photo.key, class: "card-img rounded", alt: post.title %>
-                </div>
+  <%# Posts section %>
+  <div class="community-posts border-bottom">
+    <div class="container">
+      <h1>Exploring New Horizons</h1>
+      <% @posts.each do |post| %>
+        <div class="card mb-3 m-auto community-posts-card">
+          <div class="row no-gutters">
+            <div class="col-sm-4">
+              <% if post.photo.present? %>
+                <%= link_to city_community_post_path(@city, @community, post) do %>
+                  <div class="card-img-wrapper">
+                    <%= cl_image_tag post.photo.key, class: "card-img rounded", alt: post.title %>
+                  </div>
+                <% end %>
+              <% else %>
+                <%= image_tag "placeholder.jpg", class: "card-img", alt: "Placeholder Image" %>
               <% end %>
-            <% else %>
-              <%= image_tag "placeholder.jpg", class: "card-img", alt: "Placeholder Image" %>
-            <% end %>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body text-left py-6">
-              <h4 class="card-title"><%= post.title %></h4>
-              <p class="card-text"><%= post.content %></p>
-              <br>
-              <p class="card-text"><%= post.user.username %> on <%= Post.last.created_at.strftime("%a, %d %b %Y") %></p>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body text-left py-6">
+                <h4 class="card-title"><%= post.title %></h4>
+                <p class="card-text"><%= post.content %></p>
+                <p class="post-creator"><%= post.user.username %> , <%= Post.last.created_at.strftime("%a, %d %b %Y") %></p>
+              </div>
             </div>
           </div>
         </div>
+      <% end %>
+      <div class="gap-2 col-6 justify-content-center text-center mx-auto mt-3 community-post">
+        <%= link_to "Discover All Posts in One Place", city_community_posts_path(@city, @community), class: "posts-all" %> <i class="fa-solid fa-angles-right fa-beat"></i>
       </div>
-    <% end %>
-    <div class="d-grid gap-2 col-6 justify-content-center text-center mx-auto mt-3">
-      <%= link_to "All Posts", city_community_posts_path(@city, @community), class: "btn-all-events" %>
     </div>
   </div>
-</div>
-</div>
 
-<%# Events section %>
-<div class="city-events mt-2 mb-3">
-  <div class="pt-5 pb-5">
+  <%# Events section %>
+  <div class="community-events">
+    <h1>Events for Networking</h1>
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <% @events.each_slice(3).with_index do |events_slice, index| %>
-                <div class="carousel-item <%= 'active' if index == 0 %>">
-                  <div class="row">
-                    <% events_slice.each do |event| %>
-                      <div class="col-md-4 mb-3">
-                        <div class="card" id="city-event-card">
-                          <% if event.photos.any? %>
-                            <%= link_to city_community_event_path(@city,@community,event) do %>
-                              <%= cl_image_tag event.photos.last.key, class: "img-fluid rounded", alt: event.name %>
-                            <% end %>
-                          <% else %>
-                            <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
-                          <% end %>
-                          <div class="card-body">
-                            <h3 class="card-title"><%= event.name %></h3>
-                            <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= event.address %></p>
-                            <p class="card-text"><i class="fa-solid" ></i> <%= event.date %></p>
-                            <p class="card-text"><i class="fa-solid"></i> <%= event.start_time.strftime("%H:%M") %></p>
-                          </div>
-                          <% if current_user.admin? %>
-                            <div class="card-footer">
-                              <%= link_to "Update Event", edit_city_event_path(@city, event), class: "btn btn-secondary" %>
-                              <%= link_to "Delete Event", event_path(event), class: "btn btn-danger" %>
-                            </div>
-                          <% end %>
-                        </div>
-                      </div>
-                    <% end %>
-                  </div>
+        <% @events.first(3).each do |event| %>
+          <div class="col-md-6 mb-3">
+            <div class="card community-event-card">
+              <% if event.photos.any? %>
+                <%= link_to city_community_event_path(@city,@community,event) do %>
+                  <%= cl_image_tag event.photos.last.key, class: "img-fluid rounded", alt: event.name %>
+                <% end %>
+              <% else %>
+                <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
+              <% end %>
+              <div class="card-body">
+                <h4 class="card-title"><%= event.name %></h3>
+                <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= event.address %></p>
+                <p class="card-text"><i class="fa-solid fa-calendar-week"></i> <%= event.date %></p>
+                <p class="card-text"><i class="fa-solid fa-clock"></i> <%= event.start_time.strftime("%H:%M") %></p>
+              </div>
+              <% if current_user.admin? %>
+                <div class="card-footer">
+                  <%= link_to "Update Event", edit_city_event_path(@city, event), class: "btn btn-secondary" %>
+                  <%= link_to "Delete Event", event_path(event), class: "btn btn-danger" %>
                 </div>
               <% end %>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon carousel-dark" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
           </div>
-        </div>
+        <% end %>
       </div>
-    </div>
-    <div class="d-grid gap-2 col-6 justify-content-center text-center mx-auto mt-3">
-      <%= link_to "All Events", city_events_path(@city), class: "btn-all-events" %>
+      <div class="gap-2 col-6 justify-content-center text-center mx-auto mt-3 community-event">
+        <%= link_to "Uncover the Diversity of Events", city_events_path(@city), class: "events-all" %> <i class="fa-solid fa-angles-right fa-beat"></i>
+      </div>
     </div>
   </div>
 </div>
