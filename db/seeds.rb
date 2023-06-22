@@ -9,10 +9,10 @@ Category.delete_all
 puts "category clean"
 Post.delete_all
 puts "posts clean!"
-Community.delete_all
-puts "communites clean"
 Event.delete_all
 puts "Events clean"
+Community.delete_all
+puts "communites clean"
 City.delete_all
 puts "cities clear"
 User.delete_all
@@ -558,4 +558,78 @@ posts_data.each do |post_data|
   post.photo.attach(io: file, filename: File.basename(post_data[:photo_url]), content_type: "image/png")
 
   puts "#{post.title} created!"
+end
+
+puts "Creating events..."
+
+# Find existing user, city, and community
+users = User.all
+cities = City.all
+communities = Community.all
+
+community_events_data = [
+  # Event 3: Brazilian Pool Party
+  {
+    name: "Brazilian Pool Party",
+    description: "Dive into the Brazilian vibes with our pool party! Enjoy refreshing drinks, tropical beats, and a lively atmosphere by the pool.",
+    website_url: "braziliancommunityporto.com/pool-party",
+    date: Date.new(2023, 7, 15),
+    address: "Porto Beach Club, Rua da Praia, Porto",
+    phone_number: "+351 987 654 321",
+    start_time: Time.new(2023, 7, 15, 14, 0),
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1687426662/friends-speaking-smiling-drinking-cocktails-resting-relaxing-near-swimming-pool_bfee3z.jpg",
+    user: users.first,
+    city: cities.first,
+    community: communities.first
+  },
+
+  # Event 4: Brazilian Gastronomy Festival
+  {
+    name: "Gastronomy Festival",
+    description: "Indulge in the flavors of Brazil at our Gastronomy Festival! Discover a variety of mouthwatering Brazilian dishes, from feijoada to brigadeiros.",
+    website_url: "braziliancommunityporto.com/gastronomy-festival",
+    date: Date.new(2023, 11, 10),
+    address: "Mercado do Bolhão, Rua Formosa, Porto",
+    phone_number: "+351 111 222 333",
+    start_time: Time.new(2023, 11, 10, 19, 30),
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1687425180/top-view-composition-with-delicious-brazilian-food_qtnirj.jpg",
+    user: users.first,
+    city: cities.first,
+    community: communities.first
+  },
+
+  # Event 5: Brazilian Samba Night
+  {
+    name: "Brazilian Samba Night",
+    description: "Join us for a vibrant night filled with Brazilian samba rhythms! Dance the night away, enjoy live performances, and immerse yourself in the energetic Brazilian culture.",
+    website_url: "braziliancommunityporto.com/samba-night",
+    date: Date.new(2023, 8, 20),
+    address: "Samba Club Porto, Rua das Flores, Porto",
+    phone_number: "+351 444 555 666",
+    start_time: Time.new(2023, 8, 20, 22, 0),
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1687425880/carnival-mask-with-confetti-isolated-white-background-masquerade-one-mask-template-carnival_cyf7ef.jpg",
+    user: users.first,
+    city: cities.first,
+    community: communities.first
+  }
+]
+
+community_events_data.each do |community_event_data|
+  community_event = Event.create!(
+    name: community_event_data[:name],
+    description: community_event_data[:description],
+    website_url: community_event_data[:website_url],
+    date: community_event_data[:date],
+    address: community_event_data[:address],
+    phone_number: community_event_data[:phone_number],
+    start_time: community_event_data[:start_time],
+    user_id: community_event_data[:user].id,
+    city_id: community_event_data[:city].id,
+    community_id: community_event_data[:community].id
+  )
+
+  file = URI.open(community_event_data[:photo_url])
+  community_event.photos.attach(io: file, filename: File.basename(community_event_data[:photo_url]), content_type: "image/png")
+
+  puts "#{community_event.name} created!"
 end
