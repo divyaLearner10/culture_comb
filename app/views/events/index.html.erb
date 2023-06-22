@@ -37,10 +37,17 @@
           </div>
 
           <div class="icon-actions">
-            <a href=<%= edit_city_event_path(@city, event) %>><i class="fa-solid fa-pen-to-square"></i></a>
-            <a href=<%= event_path(event) %>><i class="fa-solid fa-trash-can"></i></a>
-          </div>
+            <%= button_to add_to_favorites_event_path(event), method: :post do %>
+              <i class="fa-solid fa-heart-circle-plus"></i>
+            <% end %>
+            <%= button_to edit_city_event_path(@city, event), method: :get do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+            <%= button_to event_path(event), method: :delete do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
 
+          </div>
         </div>
       <% end %>
     </div>

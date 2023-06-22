@@ -88,6 +88,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @favorite_event = FavoriteEvent.new(event: @event)
     @favorite_event.user = current_user
+
     if @favorite_event.save!
       redirect_to favorite_events_path, notice: 'Event added to favorites.'
     else
