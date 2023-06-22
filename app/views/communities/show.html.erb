@@ -46,8 +46,8 @@
     <h1>Events for Networking</h1>
     <div class="container">
       <div class="row">
-        <% @events.first(3).each do |event| %>
-          <div class="col-md-6 mb-3">
+        <% @events.first(2).each do |event| %>
+          <div class="col-sm-6 mb-3 community-column">
             <div class="card community-event-card">
               <% if event.photos.any? %>
                 <%= link_to city_community_event_path(@city,@community,event) do %>
