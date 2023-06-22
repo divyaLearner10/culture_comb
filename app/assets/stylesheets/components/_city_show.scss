@@ -6,9 +6,9 @@
 .city-banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 100px 0;
   background-repeat: no-repeat;
-  height: 500px;
+  height: 400px;
 }
 
 .city-banner h1 {
@@ -30,6 +30,48 @@
   font-weight: bold;
   text-align: center;
   font-family: 'Fira Sans', sans-serif;
+}
+
+.city-communities h1 {
+  padding: 40px;
+  margin: 20px;
+}
+
+.city-communities h1 {
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  text-align: center;
+}
+
+#post-card {
+  max-width: 80%;
+}
+
+#post-image {
+  height: 198px;
+  border-radius: 10px;
+  width: 190px;
+}
+
+.city-posts .card-body{
+  padding: 5px;
+  text-align: start;
+  font-family: 'Fira Sans', sans-serif;
+  margin: 6px;
+}
+
+.city-posts .card-title{
+  color: #0E5E6F;
+  font-weight: bold;
+}
+
+.city-posts .card-text{
+  color: #495579;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 .city-attraction h1 {
@@ -163,41 +205,4 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
 .btn-all-events:hover {
   background: linear-gradient(45deg,#807c80, #c0bdc0);
   color: white;
-}
-
-.city-posts h1 {
-  color: #3d3f44;
-  font-family: 'Fira Sans', sans-serif;
-  font-weight: bolder;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 40px;
-  text-align: center;
-}
-
-#post-card {
-  max-width: 80%;
-}
-
-#post-image {
-  height: 198px;
-  border-radius: 10px;
-  width: 190px;
-}
-
-.city-posts .card-body{
-  padding: 5px;
-  text-align: start;
-  font-family: 'Fira Sans', sans-serif;
-  margin: 6px;
-}
-
-.city-posts .card-title{
-  color: #0E5E6F;
-  font-weight: bold;
-}
-
-.city-posts .card-text{
-  color: #495579;
-  font-weight: bold;
-  margin-bottom: 0;
 }
