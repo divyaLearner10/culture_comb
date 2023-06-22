@@ -1,120 +1,25 @@
 require "open-uri"
 
-# puts "Cleaning Database"
-# Attraction.delete_all
-# puts "attractions clear"
-# Community.delete_all
-# puts "communites clear"
-# Category.delete_all
-# puts "category clear"
-# Event.delete_all
-# puts "events clean"
-# City.delete_all
-# puts "cities clear"
-# User.delete_all
-# puts "users clear"
-
-# Chatroom.delete_all
-# puts "Chatroom clear"
-
-# puts "Creating users"
-
-# users_data = [
-#   { first_name: "Alexandre", last_name: "Almeida", email: "alex@lewagon.com", password: "123456", username: "alexthelion" },
-#   { first_name: "Divya", last_name: "Savai", email: "divya@lewagon.com", password: "123456",username: "alexthelion" },
-#   { first_name: "Christophe", last_name: "Deissenberg", email: "christophe@lewagon.com", password: "123456", username: "alexthelion" },
-#   { first_name: "Karina", last_name: "Basurto", email: "kar@lewagon.com", password: "123456", username: "alexthelion" }
-# ]
-
-# users_data.map do |user_data|
-#   User.create!(user_data)
-# end
-# puts 'Finished!'
-
-
-# puts "Creating city"
-# cities_data = [
-#   { name: "Porto", description: "Porto is a fascinaating and vibrant city, entices with its historic center and sumptuous food and wine.", country: "Portugal" }
-# ]
-# cities_data.map do |city_data|
-#   City.create!(city_data)
-# end
-# puts 'Finished!'
-
-
-# puts "Creating attractions"
-# attractions_data = [
-#   { name: "Livraria Lello", description: "Porto’s most famous bookstore was built all the way back in 1906! The Lello brothers, who were running a bookstore at the time, hired the engineer Xavier Esteves to construct the Livraria Lello on Rua das Carmelitas.", address: " R. das Carmelitas 144, 4050-161 Porto, Portugal", opening_hours: "Monday-Sunday 9:00am -7:30pm", website_url: "https://www.livrarialello.pt/en/home",
-#   latitude:41.1469, longitude: 8.6148},
-
-#   { name: "Porto São Bento", description: "Porto São Bento Station is without a doubt the most beautiful train station in Portugal, and certainly one of the most beautiful in the world,we recommend that you see its beautiful atrium", address: "Praça de Almeida Garrett, 4000-069 Porto, Portugal", opening_hours: "Monday-Friday 8:00am-6:00pm, Saturday 9:00am-4:30pm, Sunday closed", website_url: "https://www.portugaltrains.com/porto-sao-bento-train-station.html", latitude: 41.1455, longitude: 8.6095},
-
-#   { name: "Casa da Musica", description: "One of Porto’s leading cultural venues, designed by the architect, Rem Koolhaas.Home of the national Orchestra of Porto", address: " Av. da Boavista 604-610, 4149-071 Porto, Portugal", opening_hours: "Monday-Saturday 10:00am-7:00pm, Sunday 10:00am-6:00pm", website_url: "https://www.portugaltrains.com/porto-sao-bento-train-station.html",latitude: 41.1589,longitude: 8.6307},
-
-#   { name: "The Clérigos tower", description: "The Clérigos Church is a Baroque church in the city of Porto, in Portugal. Its 75-meter-tall bell tower, the Torre dos Clérigos, can be seen from various points of the city and is one of its most characteristic symbols", address: " R. de São Filipe de Nery, 4050-546 Porto, Portugal", opening_hours: "Monday-Sunday 9:00am-7:00pm", website_url: "http://www.torredosclerigos.pt/en/", latitude: 41.1459, longitude: 8.6139}
-#  ]
-
-# attractions_data.map do |attraction_data|
-#   attraction = Attraction.new(attraction_data)
-#   attraction.city = City.first
-#   attraction.save!
-# end
-# puts 'Finished!'
-
-
-# puts "Creating community"
-
-# communities_data = [
-#   { name: "Brasilian", description: "This is our Brazilian community here on Culture Comb, Join this community and find events!"},
-#   { name: "French", description: "This is our French community here on Culture Comb, Join this community and find events!"},
-# ]
-# communities_data.map do |community_data|
-# community = Community.new(community_data)
-# community.user = User.first
-# community.city = City.first
-# community.save!
-# end
-# puts 'Finished!'
-
-
-# puts "Creating category"
-
-# categories_data = [
-#   { name: "Music"},
-#   { name: "Art"},
-#   { name: "Food"}
-# ]
-# categories_data.map do |category_data|
-#   Category.create!(category_data)
-# end
-# puts 'Finished!'
-
-# puts "Creating chatroom"
-
-# Chatroom.create(name: "General")
-
-# puts "Finished chatroom!"
-# puts "Done! Heroku "
-
-
 puts "Cleaning Database"
 Attraction.delete_all
-puts "attractions clear"
-Community.delete_all
-puts "communites clear"
+puts "attractions clean"
 FavoriteCategory.delete_all
-puts "favorite categories clear"
+puts "favorite categories clean"
 Category.delete_all
-puts "category clear"
+puts "category clean"
+Post.delete_all
+puts "posts clean!"
+Community.delete_all
+puts "communites clean"
 Event.delete_all
-puts "events clean"
+puts "Events clean"
 City.delete_all
 puts "cities clear"
 User.delete_all
-puts "users clear"
+puts "users clean"
 
 Chatroom.delete_all
-puts "Chatroom clear"
+puts "Chatroom clean"
 
 puts "Creating users"
 
@@ -122,9 +27,9 @@ users_data = [
   {
     first_name: "Alexandre",
     last_name: "Almeida",
-    email: "alex@lewagon.com",
+    email: "alex@culturecomb.com",
     password: "123456",
-    username: "alexthelion",
+    username: "alex_1983",
     nationality: "Brazilian",
     current_city: "Porto",
     photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1682538988/anspbresvpivccfpk9ul.jpg",
@@ -133,7 +38,7 @@ users_data = [
   {
     first_name: "Divya",
     last_name: "Savai",
-    email: "divya@lewagon.com",
+    email: "divya@culturecomb.com",
     password: "123456",
     username: "divyadreamer",
     nationality: "Indian",
@@ -144,7 +49,7 @@ users_data = [
   {
     first_name: "Christophe",
     last_name: "Deissenberg",
-    email: "christophe@lewagon.com",
+    email: "christophe@culturecomb.com",
     password: "123456",
     username: "cdeissenberg",
     nationality: "French",
@@ -155,13 +60,24 @@ users_data = [
   {
     first_name: "Karina",
     last_name: "Basurto",
-    email: "karina@lewagon.com",
+    email: "kar@culturecomb.com",
     password: "123456",
     username: "karinab",
     nationality: "Mexican",
     current_city: "Porto",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686904824/Kar_profile_kwsl9q.jpg",
     admin: false
+  },
+  {
+    first_name: "Admin",
+    last_name: "Admin",
+    email: "admin@culturecomb.com",
+    password: "admin1",
+    username: "Admin",
+    nationality: "Brazilian",
+    current_city: "Porto",
+    photo_url: "/Users/alexandre/code/AlexandreMdeAlmeida/culture_comb/culture_comb/app/assets/images/admin.png",
+    admin: true
   }
 ]
 
@@ -226,32 +142,30 @@ puts "Creating communities"
 communities_data = [
   {
     name: "Brazilian",
-    description: "This is our Brazilian community here on Culture Comb. Join this community and find events!"
+    description: "A vibrant community of Brazilians in #{City.name}, celebrating culture, forging connections, and embracing the best of Brazil and Portugal."
   },
   {
     name: "French",
-    description: "This is our French community here on Culture Comb. Join this community and find events!"
-  },
-  {
-    name: "American",
-    description: "This is our American community here on Culture Comb. Join this community and find events!"
-  },
-  {
-    name: "Italian",
-    description: "This is our Italian community here on Culture Comb. Join this community and find events!"
-  },
-  {
-    name: "Indian",
-    description: "This is our Indian community here on Culture Comb. Join this community and find events!"
-  },
-  {
-    name: "English",
-    description: "This is our English community here on Culture Comb. Join this community and find events!"
+    description: "A vibrant community of Frenchs in #{City.name}, celebrating culture, forging connections, and embracing the best of France and Portugal."
   }
 ]
 
+# City.all.each do |city|
+#   international_communities = communities_data.sample(2)
+
+#   international_communities.each do |community_data|
+#     community = Community.new(community_data)
+#     community.user = User.first
+#     community.city = city
+#     community.save!
+#   end
+# end
+
 City.all.each do |city|
-  international_communities = communities_data.sample(2)
+  international_communities = communities_data.dup
+  brazilian_community = international_communities.find { |c| c[:name] == "Brazilian" }
+  international_communities.delete(brazilian_community)
+  international_communities.unshift(brazilian_community)
 
   international_communities.each do |community_data|
     community = Community.new(community_data)
@@ -261,14 +175,15 @@ City.all.each do |city|
   end
 end
 
+
 puts "Communities created!"
 
 puts "Creating category"
 
 categories_data = [
-  { name: "Music"},
-  { name: "Art"},
-  { name: "Food"}
+  { name: "Music" },
+  { name: "Art" },
+  { name: "Food" }
 ]
 categories_data.map do |category_data|
   Category.create!(category_data)
@@ -426,7 +341,9 @@ events_data = [
     website_url: "https://www.brazilianmusicfestival.com",
     city_name: "Porto",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686857035/karla-vidal-KtA4_lqFhTw-unsplash_dhba5v.jpg",
-    user: users.first
+    user: users.first,
+    phone_number: "+351912345678",
+    start_time: "18:00"
   },
   {
     name: "Porto Wine Tasting Tour",
@@ -436,7 +353,9 @@ events_data = [
     website_url: "https://www.portowinetasting.com",
     city_name: "Porto",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686857024/douglas-lopez-Lf5Xzq6NvWw-unsplash_vnbfrc.jpg",
-    user: users.first
+    user: users.first,
+    phone_number: "+351912345679",
+    start_time: "14:00"
   },
   {
     name: "French Food Festival",
@@ -446,7 +365,9 @@ events_data = [
     website_url: "https://www.frenchfoodfest.com",
     city_name: "Porto",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686857028/jessica-ruscello-AbuQX0g4cdU-unsplash_txgtaz.jpg",
-    user: users.first
+    user: users.first,
+    phone_number: "+351912345680",
+    start_time: "12:00"
   },
   {
     name: "Porto Fashion Week",
@@ -456,7 +377,9 @@ events_data = [
     website_url: "https://www.portofashionweek.com",
     city_name: "Porto",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686857027/tamara-bellis-IwVRO3TLjLc-unsplash_ml31pv.jpg",
-    user: users.first
+    user: users.first,
+    phone_number: "+351912345681",
+    start_time: "10:00"
   },
 
   # Events in Paris
@@ -468,7 +391,9 @@ events_data = [
     website_url: "https://www.parisjazzfestival.com",
     city_name: "Paris",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686857142/jens-thekkeveettil-dBWvUqBoOU8-unsplash_nkrwml.jpg",
-    user: users.first
+    user: users.first,
+    phone_number: "+33612345678",
+    start_time: "18:00"
   },
   {
     name: "Bastille Day Parade",
@@ -478,7 +403,9 @@ events_data = [
     website_url: "https://www.bastilledayparade.com",
     city_name: "Paris",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686857026/joe-desousa-OSVh2HgbaZc-unsplash_ymo2qg.jpg",
-    user: users.first
+    user: users.first,
+    phone_number: "+33612345679",
+    start_time: "14:00"
   },
   {
     name: "Paris Fashion Week",
@@ -488,7 +415,9 @@ events_data = [
     website_url: "https://www.parisfashionweek.com",
     city_name: "Paris",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686857025/mariya-georgieva-0O6Fv3Ff_XI-unsplash_d2h7ol.jpg",
-    user: users.first
+    user: users.first,
+    phone_number:"+33612345680",
+    start_time: "18:00"
   },
   {
     name: "Nuit Blanche",
@@ -498,7 +427,9 @@ events_data = [
     website_url: "https://www.nuitblanche.paris",
     city_name: "Paris",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686857142/scott-webb-zq9RW5I4CdU-unsplash_l6jbty.jpg",
-    user: users.first
+    user: users.first,
+    phone_number: "+33612345681",
+    start_time: "19:00"
   },
 
   # Events in Berlin
@@ -510,7 +441,9 @@ events_data = [
     website_url: "https://www.berlinale.de",
     city_name: "Berlin",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686857024/chris-murray-YvPxyGzaFJ4-unsplash_yqbhh2.jpg",
-    user: users.first
+    user: users.first,
+    phone_number: "+49123456789",
+    start_time: "16:00"
   },
   {
     name: "Berlin Beer Festival",
@@ -520,7 +453,9 @@ events_data = [
     website_url: "https://www.berlinbeerfestival.com",
     city_name: "Berlin",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686857023/julian-hochgesang-DAIg7VxsJkM-unsplash_paitdm.jpg",
-    user: users.first
+    user: users.first,
+    phone_number: "+49123456780",
+    start_time: "10:00"
   },
   {
     name: "Berlin Art Week",
@@ -530,7 +465,9 @@ events_data = [
     website_url: "https://www.berlinartweek.com",
     city_name: "Berlin",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686857023/rhondak-native-florida-folk-artist-_Yc7OtfFn-0-unsplash_y9trxe.jpg",
-    user: users.first
+    user: users.first,
+    phone_number: "+49123456781",
+    start_time: "15:00"
   },
   {
     name: "Berlin Marathon",
@@ -540,7 +477,9 @@ events_data = [
     website_url: "https://www.bmw-berlin-marathon.com",
     city_name: "Berlin",
     photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1686857039/snapytrack-medaillenhalter-8fUKOQ0mNg4-unsplash_ufao7b.jpg",
-    user: users.first
+    user: users.first,
+    phone_number: "+49123456782",
+    start_time: "09:30"
   }
 ]
 
@@ -561,4 +500,62 @@ events_data.each do |event_data|
     event.save!
     puts "#{event.name} created"
   end
+end
+
+puts "Creating posts..."
+
+# Find existing user, city, and community
+users = User.all
+cities = City.all
+communities = Community.all
+
+posts_data = [
+  # Post 1
+  {
+    title: "Had an Amazing Time at the Brazilian Pool Party!",
+    content: "Hey everyone, I had the most incredible time at the Brazilian Pool Party in Porto last year! This party is a must!",
+    website_url: "www.braziliancommunity.com/poolparty",
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1687426662/friends-speaking-smiling-drinking-cocktails-resting-relaxing-near-swimming-pool_bfee3z.jpg",
+    user: users.first,
+    city: cities.first,
+    community: communities.first
+  },
+
+  # Post 2
+  {
+    title: "Counting Down the Days to the Brazilian Gastronomy Festival!",
+    content: "Hey foodies, I'm eagerly counting down the days to the Brazilian Gastronomy Festival in Porto! This event is a paradise for anyone who loves Brazilian cuisine. It's an event you won't want to miss!",
+    website_url: "www.braziliancommunity.com/poolparty",
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1687425180/top-view-composition-with-delicious-brazilian-food_qtnirj.jpg",
+    user: users.first,
+    city: cities.first,
+    community: communities.first
+  },
+
+  # Post 3
+  {
+    title: "Get Ready to Samba the Night Away at the Brazilian Samba Night!",
+    content: "Calling all dance enthusiasts and lovers of Brazilian culture! Get your dancing shoes ready because the Brazilian Samba Night in Porto is going to be extraordinary. Let's create unforgettable memories together!",
+    website_url: "www.braziliancommunity.com/poolparty",
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1687425880/carnival-mask-with-confetti-isolated-white-background-masquerade-one-mask-template-carnival_cyf7ef.jpg",
+    user: users.first,
+    city: cities.first,
+    community: communities.first
+  }
+]
+
+posts_data.each do |post_data|
+  post = Post.create!(
+    title: post_data[:title],
+    content: post_data[:content],
+    website_url: post_data[:website_url],
+    user_id: post_data[:user].id,
+    city_id: post_data[:city].id,
+    community_id: post_data[:community].id
+  )
+
+  file = URI.open(post_data[:photo_url])
+  post.photo.attach(io: file, filename: File.basename(post_data[:photo_url]), content_type: "image/png")
+
+  puts "#{post.title} created!"
 end
