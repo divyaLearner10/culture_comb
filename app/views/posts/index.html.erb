@@ -50,7 +50,7 @@
       </div>
 
       <div class="city-info border">
-        <%= link_to city_path(@city) do %>
+        <%= link_to city_community_path(@city, @community) do %>
           <%= cl_image_tag @city.photo.key, class: "card-img-top", alt: @city.name %>
         <% end %>
         <div class="city-name-description">
