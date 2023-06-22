@@ -9,12 +9,14 @@
       <div class="cards">
       <% @posts.each do |post| %>
         <div class="card" >
-
+          <% if post.photo.present? %>
             <%= link_to city_community_post_path(@city, @community, post) do %>
               <%= cl_image_tag post.photo.key, class: "card-img-top event-card-img", alt: post.title %>
             <% end %>
-
-
+          <% else %>
+            <!-- Display a placeholder image or default image if no photos are available -->
+          <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= post.title %></h5>
             <p class="card-text"> <%= post.content %></p>
