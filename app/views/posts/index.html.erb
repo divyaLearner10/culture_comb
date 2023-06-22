@@ -3,37 +3,36 @@
   <div class="row">
     <div class="col-12 col-lg-9 border events-left">
       <div class="events-heading border mt-3">
-        <h3>Eventopia: Unleash the Experience</h3>
+        <h3>Unveiling All Posts</h3>
       </div>
 
       <div class="cards">
-      <% @posts.each do |post| %>
-        <div class="card" >
-          <% if post.photo.present? %>
-            <%= link_to city_community_post_path(@city, @community, post) do %>
-              <%= cl_image_tag post.photo.key, class: "card-img-top event-card-img", alt: post.title %>
+        <% @posts.each do |post| %>
+          <div class="card" >
+            <% if post.photo.present? %>
+              <%= link_to city_community_post_path(@city, @community, post) do %>
+                <%= cl_image_tag post.photo.key, class: "card-img-top event-card-img", alt: post.title %>
+              <% end %>
+            <% else %>
+              <!-- Display a placeholder image or default image if no photos are available -->
+            <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
             <% end %>
-          <% else %>
-            <!-- Display a placeholder image or default image if no photos are available -->
-          <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= post.title %></h5>
-            <p class="card-text"> <%= post.content %></p>
-          </div>
+            <div class="card-body">
+              <h5 class="card-title"><%= post.title %></h5>
+            </div>
 
-          <div class="icon-actions">
-            <a href=<%= edit_city_post_path(@city, post) %>><i class="fa-solid fa-pen-to-square"></i></a>
-            <%= link_to post_path(post),
-              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
-              class: "delete-rs-button" do %>
-              <i class="fa-solid fa-trash-can"></i>
-            <% end %>
-          </div>
+            <div class="icon-actions">
+              <a href=<%= edit_city_post_path(@city, post) %>><i class="fa-solid fa-pen-to-square"></i></a>
+              <%= link_to post_path(post),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                class: "delete-rs-button" do %>
+                <i class="fa-solid fa-trash-can"></i>
+              <% end %>
+            </div>
 
-        </div>
-      <% end %>
-    </div>
+          </div>
+        <% end %>
+      </div>
 
     </div>
 
@@ -54,8 +53,7 @@
           <%= cl_image_tag @city.photo.key, class: "card-img-top", alt: @city.name %>
         <% end %>
         <div class="city-name-description">
-          <h5><%= @city.name %></h5>
-          <p><%= @city.description %></p>
+          <h5 style="color: rgb(6, 128, 128);">Return to the Community Hub  <i class="fa-regular fa-hand-point-up fa-beat"></i></h5>
         </div>
       </div>
 
