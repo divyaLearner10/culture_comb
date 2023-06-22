@@ -1,18 +1,24 @@
 .chatroom {
   background: white;
-  margin-top: 9px;
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
   border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
 
-  h1 {
+  h2 {
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
     padding: 1rem;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
   }
+
 
   .messages {
     height: 100%;
@@ -23,9 +29,43 @@
   #new_message {
     border-top: 1px solid $gray-200;
     padding: 1rem;
+    border-radius: 10px;
 
     .form-group {
       margin-bottom: 0;
     }
+
   }
+}
+
+.flex-grow-1 {
+  border-radius: 10px;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+}
+.chat-submit-form {
+  border-radius: 10px;
+  background: linear-gradient(45deg,#3d3f44, #8e8f91);
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+}
+
+.message-box-right {
+  width: fit-content;
+  max-width: 40%;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg,#6b6c71, #cdcfd3);
+  margin-left: auto;
+}
+
+.message-box-left {
+  width: fit-content;
+  max-width: 40%;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg,#f2e8ba, #efefee);
+  margin-right: auto;
 }
