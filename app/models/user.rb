@@ -18,9 +18,9 @@ class User < ApplicationRecord
 
   has_one_attached :photo
 
-  has_many :messages
-  has_many :sent_chatrooms, class_name: 'Chatroom', foreign_key: 'sender_id'
-  has_many :received_chatrooms, class_name: 'Chatroom', foreign_key: 'recipient_id'
+  has_many :messages, dependent: :destroy
+  has_many :sent_chatrooms, class_name: 'Chatroom', foreign_key: 'sender_id', dependent: :destroy
+  has_many :received_chatrooms, class_name: 'Chatroom', foreign_key: 'recipient_id', dependent: :destroy
 
   def all_chatrooms
     (sent_chatrooms + received_chatrooms).sort_by{|item| item.created_at}.reverse

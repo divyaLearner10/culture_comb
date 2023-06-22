@@ -4,6 +4,9 @@ class Event < ApplicationRecord
   belongs_to :city
   belongs_to :community, optional: true
   belongs_to :user
+  has_many :event_categories
+  has_many :categories, through: :event_categories
+  has_many :favorite_events, dependent: :destroy
 
   has_many_attached :photos
 
@@ -13,9 +16,6 @@ class Event < ApplicationRecord
   # validates :date
   # , date: true
   validate :event_date_cannot_be_in_the_past
-
-  has_many :event_categories
-  has_many :categories, through: :event_categories
 
   include PgSearch::Model
 

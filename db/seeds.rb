@@ -1,25 +1,25 @@
 require "open-uri"
 
 puts "Cleaning Database"
-Attraction.delete_all
+Attraction.destroy_all
 puts "attractions clean"
-FavoriteCategory.delete_all
+FavoriteCategory.destroy_all
 puts "favorite categories clean"
-Category.delete_all
+Category.destroy_all
 puts "category clean"
-Event.delete_all
+Event.destroy_all
 puts "Events clean"
-Post.delete_all
+Post.destroy_all
 puts "posts clean!"
 
-Community.delete_all
+Community.destroy_all
 puts "communites clean"
-City.delete_all
+City.destroy_all
 puts "cities clear"
-User.delete_all
+User.destroy_all
 puts "users clean"
 
-Chatroom.delete_all
+Chatroom.destroy_all
 puts "Chatroom clean"
 
 puts "Creating users"
@@ -77,7 +77,7 @@ users_data = [
     username: "Admin",
     nationality: "Brazilian",
     current_city: "Porto",
-    photo_url: "/Users/alexandre/code/AlexandreMdeAlmeida/culture_comb/culture_comb/app/assets/images/admin.png",
+    photo_url: "https://res.cloudinary.com/dwuazcbx4/image/upload/v1687442955/admin_ndg5ty.png",
     admin: true
   }
 ]
