@@ -2,8 +2,7 @@
     style="background-image: url(https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80);background-position: center bottom;">
   <div class="container" id="cc-container">
     <h1 class="cc-name">CULTURECOMB</h1>
-    <p class= "cc-slogan">Discover the best of your new city</p>
-
+    <p class= "cc-slogan">Embrace Connections, CultureComb connects like-minded souls</p>
   </div>
 </div>
 
@@ -11,10 +10,10 @@
   <div class="container">
     <div class="card-description">
       <div class="card-body">
-
-        <h1>CULTURECOMB</h1>
-
-        <p>CultureComb is designed to help expats feel at home in their new city. As an expat, it can be overwhelming to navigate a new city. But with CultureComb, you'll have access to the latest information and attractions, making it easy for you to immerse yourslef in your new home. Discover hiden gems in any city with CultureComb.</p>
+        <%= image_tag('culture-comb.png') %>
+        <p>Welcome to CultureComb, the ultimate platform for connecting individuals within the same community.
+          Our website is designed to empower and unite community members, providing a space where you can discover,
+          engage, and thrive together. Explore our diverse range of features and join CultureComb today to unlock the power of connection within your community.</p>
         </p>
       </div>
     </div>
@@ -23,60 +22,55 @@
 
 <div class="city-section">
   <div class="container city-card">
-    <h1>Cities</h1>
-
+    <h1 class="city-heading">Discover Your City's Hidden Gems</h1>
       <div class="cards overflow-hidden mb-5 mt-5 border-0 ">
-
-      <% @cities.each do |city| %>
-        <%= link_to city_path(city), class:"text-decoration-none" do%>
-        <% if city.photo.attached? %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path city.photo.key, height: 300, crop: :fill %>')">
-          <%= city.name %>
-          </div>
-        <% else %>
-        <div class="card-category" style="background-color: gray">
-          <%= city.name %>
-          </div>
+        <% @cities.each do |city| %>
+          <%= link_to city_path(city), class:"text-decoration-none" do%>
+            <% if city.photo.attached? %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path city.photo.key, height: 300, crop: :fill %>')">
+                <%= city.name %>
+              </div>
+            <% else %>
+              <div class="card-category" style="background-color: gray">
+                <%= city.name %>
+              </div>
+            <% end %>
+          <% end %>
         <% end %>
-        <% end %>
-      <% end %>
       </div>
   </div>
 </div>
 
-<div class="attraction-section">
+<div class="attractions-section">
   <div class="container">
-    <h1>CultureComb Cities Attractions</h1>
-    <div class="card-group gradient">
-        <div class="card" style="border:0 ; height:100%" >
-          <img class="image" src="https://res.cloudinary.com/dwuazcbx4/image/upload/v1686855933/redcharlie-redcharlie1-vGbC6mOeUCw-unsplash_bsvfut.jpg" alt="">
+   <h1>Unveiling the Best of Attractions</h1>
+    <div class="row">
+      <div class="cards attraction-cards">
+        <div class="card" style="width: 18rem;">
+          <img class="attraction-image" src="https://res.cloudinary.com/dwuazcbx4/image/upload/v1686855933/redcharlie-redcharlie1-vGbC6mOeUCw-unsplash_bsvfut.jpg" alt="">
           <div class="card-body">
             <h4 class="card-title">Livraria Lello</h4>
-            <p class="card-text"><i class="fa-solid fa-location-dot "></i> R. das Carmelitas 144, 4050-161 Porto, 🇵🇹 Portugal</p>
+              <p class="card-text"><i class="fa-solid fa-location-dot "></i> R. das Carmelitas 144, 4050-161 Porto, 🇵🇹 Portugal</p>
           </div>
         </div>
-        <div class="card" style="border:0 ; height:100%" >
-          <img class="image" src="https://res.cloudinary.com/dwuazcbx4/image/upload/v1686855934/chris-desort-uj5mMdSuJgw-unsplash_hplphl.jpg" alt="">
+
+        <div class="card" style="width: 18rem;">
+          <img class="attraction-image" src="https://res.cloudinary.com/dwuazcbx4/image/upload/v1686855934/chris-desort-uj5mMdSuJgw-unsplash_hplphl.jpg" alt="">
           <div class="card-body">
             <h4 class="card-title">Montmartre</h4>
-            <p class="card-text"><i class="fa-solid fa-location-dot"></i>  6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris,🇫🇷 France</p>
+              <p class="card-text"><i class="fa-solid fa-location-dot"></i> 6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris,🇫🇷 France</p>
           </div>
         </div>
-        <div class="card" style="border:0 ; height:100%" >
-          <img class="image" src="https://res.cloudinary.com/dwuazcbx4/image/upload/v1686855930/pascal-bernardon-2CkIpl-LhR4-unsplash_awarpy.jpg" alt="">
+
+        <div class="card" style="width: 18rem;">
+          <img class="attraction-image" src="https://res.cloudinary.com/dwuazcbx4/image/upload/v1686855930/pascal-bernardon-2CkIpl-LhR4-unsplash_awarpy.jpg" alt="">
           <div class="card-body">
             <h4 class="card-title">Berlin Wall East Side Gallery</h4>
-            <p class="card-text"><i class="fa-solid fa-location-dot"></i>Mühlenstraße, 10243 Berlin, 🇩🇪 Germany</p>
+              <p class="card-text"><i class="fa-solid fa-location-dot"></i> Mühlenstraße, 10243 Berlin, 🇩🇪 Germany</p>
           </div>
         </div>
-        <div class="card" style="border:0 ; height:100%" >
-          <img class="image" src="https://res.cloudinary.com/dwuazcbx4/image/upload/v1686855931/pedro-menezes-ij9Fm5ktg-I-unsplash_h8kb0c.jpg" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Porto São Bento</h4>
-            <p class="card-text"><i class="fa-solid fa-location-dot"></i>Praça de Almeida Garrett, 4000-069 Porto,🇵🇹 Portugal</p>
 
-          </div>
-        </div>
+      </div>
     </div>
   </div>
 </div>
