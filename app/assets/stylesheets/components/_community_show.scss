@@ -1,0 +1,148 @@
+$shadow-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-sm: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+
+.community-show {
+  font-family: 'Fira Sans', sans-serif;
+  background-color: #EEEEEE;
+}
+
+.community-banner {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  background-repeat: no-repeat;
+  height: 400px;
+}
+
+.community-banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.community-banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .8;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.community-posts {
+  padding: 30px;
+}
+
+.community-posts h1 {
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 36px;
+  text-align: center;
+  padding: 20px;
+}
+
+.community-posts .container {
+  width: 70%;
+  padding: 0 0 50px 50px;
+}
+
+.community-posts-card {
+  box-shadow: $shadow-lg;
+}
+
+.community-posts-card img {
+  height: 100%;
+}
+
+.community-posts-card h4 {
+  color: #393E46;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 28px;
+}
+
+.community-posts-card p {
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.community-posts-card .post-creator {
+  color: rgb(6, 128, 128);
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.posts-all {
+  color: rgb(6, 128, 128);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.community-post i {
+  color: rgb(6, 128, 128);
+  font-weight: bold;
+}
+
+.community-events {
+  padding: 30px;
+}
+
+.community-events h1 {
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 36px;
+  text-align: center;
+  padding: 20px;
+}
+
+.community-events .container {
+  width: 70%;
+  padding: 0 0 50px 50px;
+}
+
+.community-event i {
+  color: rgb(6, 128, 128);
+  font-weight: bold;
+}
+
+
+.events-all {
+  color: rgb(6, 128, 128);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.community-event-card {
+  box-shadow: $shadow-lg;
+}
+
+.community-event-card .card-body h4 {
+  color: #393E46;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bolder;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 28px;
+}
+
+.community-event-card .card-body p {
+  color: #3d3f44;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}

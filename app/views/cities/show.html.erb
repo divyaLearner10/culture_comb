@@ -18,7 +18,7 @@
               <div class="card-body">
                 <h5 class="card-title"><%= community.name%></h5>
                 <p class="card-text"><%= community.description%></p>
-                <i class="fa-solid fa-angles-right fa-beat"></i> <%= link_to 'Discover More', city_community_path(@city, community), class: "card-more-deatils" %>
+                <i class="fa-solid fa-angles-right fa-beat"></i> <%= link_to 'Discover More', city_community_path(@city, community), class: "card-more-details" %>
               </div>
             </div>
           </div>
@@ -67,9 +67,7 @@
           <div class="col-sm-6">
             <div class="card-product">
               <% if event.photos.any? %>
-                <%= link_to city_event_path(@city) do %>
-                  <%= cl_image_tag event.photos.first.key, alt: event.name %>
-                <% end %>
+                <%= cl_image_tag event.photos.first.key, alt: event.name %>
               <% else %>
                 <!-- Display a placeholder image or default image if no photos are available -->
                 <%= image_tag "placeholder.jpg", class: "card-img-top", alt: "Placeholder Image" %>
