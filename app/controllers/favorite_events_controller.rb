@@ -19,12 +19,10 @@ class FavoriteEventsController < ApplicationController
 
   def create
     @event = Event.find(params[:event_id])
-
     @favorite_event = FavoriteEvent.new
     @favorite_event.event = @event
     @post.user = current_user
     @favorite_event.save!
-
     redirect_to favorite_events_path
   end
 
