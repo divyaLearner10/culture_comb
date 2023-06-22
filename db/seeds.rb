@@ -7,10 +7,11 @@ FavoriteCategory.delete_all
 puts "favorite categories clean"
 Category.delete_all
 puts "category clean"
-Post.delete_all
-puts "posts clean!"
 Event.delete_all
 puts "Events clean"
+Post.delete_all
+puts "posts clean!"
+
 Community.delete_all
 puts "communites clean"
 City.delete_all
