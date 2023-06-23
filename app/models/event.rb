@@ -11,6 +11,7 @@ class Event < ApplicationRecord
   has_many_attached :photos
 
   validates :name, :website_url, :description, :address, :date, presence: true
+  validates :photos, presence: true
 
   validates :description, length: { minimum: 10 }
   # validates :date
