@@ -1,69 +1,14 @@
-<div class="container">
-  <div class="index">
-    <% if current_user.admin? %>
-      <div class="row">
-        <div class="col-12 col-lg-9 border events-left">
-          <div class="events-heading border mt-3">
-            <h3>Eventopia: Unleash the Experience</h3>
-          </div>
-
-          <div class="cards">
-            <% @attractions.each do |attraction| %>
-              <div class="card" >
-                <%= link_to city_attraction_path(@city, attraction) do %>
-                  <%= cl_image_tag attraction.photo.key, class: "card-img-top event-card-img", alt: attraction.name %>
-                <% end %>
-
-                <div class="card-body">
-                  <h5 class="card-title"><%= attraction.name %></h5>
-                  <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= attraction.address %></p>
-                  <p class="card-text"><i class="fa-solid fa-clock"></i> <%= attraction.opening_hours %></p>
-                </div>
-
-                <div class="icon-actions">
-                  <a href=<%= edit_city_attraction_path(@city, attraction) %>><i class="fa-solid fa-pen-to-square"></i></a>
-                  <a href=<%= attraction_path(attraction) %>><i class="fa-solid fa-trash-can"></i></a>
-                </div>
-
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3 border events-right">
-          <div class="event-options">
-            <div class="new-event border">
-              <h5 style="color:rgb(6, 128, 128);">Expand the Excitement: Add a New Attraction to the Lineup!</h5>
-              <!--<i class="fa-regular fa-square-plus fa-beat"></i></i> <%= link_to 'Add New attraction', new_city_attraction_path %>-->
-              <%= render "new" %>
-            </div>
-          </div>
-
-          <div class="city-info border">
-            <%= link_to city_path(@city) do %>
-              <%= cl_image_tag @city.photo.key, class: "card-img-top", alt: @city.name %>
-            <% end %>
-            <div class="city-name-description">
-              <h5><%= @city.name %></h5>
-              <p><%= @city.description %></p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    <% else %>
-      <div class="row">
-        <div class="col-12 col-lg-12 border events-left">
-          <div class="events-heading border mt-3">
-            <h3>Eventopia: Unleash the Experience</h3>
-          </div>
-          <div class="cards">
+<div class="attractions-index">
+  <div class="container mt-5 mb-5">
+    <div class="row" style="padding: 20px;">
+      <div class="col-12 col-sm-9 attraction-left">
+        <h3 class="attraction-index-title">Unveiling the Wonders: Explore All Attractions</h3>
+        <div class="cards">
           <% @attractions.each do |attraction| %>
             <div class="card" >
-              <%= link_to city_attraction_path(@city, attraction) do %>
-                <%= cl_image_tag attraction.photo.key, class: "card-img-top event-card-img", alt: attraction.name %>
-              <% end %>
+              <%= cl_image_tag attraction.photo.key, class: "attraction-card-img", alt: attraction.name%>
               <div class="card-body">
-                <h5 class="card-title"><%= attraction.name %></h5>
+                <h4 class="card-title"><%= attraction.name %></h4>
                 <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%= attraction.address %></p>
                 <p class="card-text"><i class="fa-solid fa-clock"></i> <%= attraction.opening_hours %></p>
               </div>
@@ -71,6 +16,17 @@
           <% end %>
         </div>
       </div>
-    <% end %>
+      <div class="col-12 col-sm-3 border attraction-right">
+        <div class="city-info border">
+            <%= link_to city_path(@city) do %>
+              <%= cl_image_tag @city.photo.key, class: "card-img-top", alt: @city.name %>
+            <% end %>
+            <div class="city-name-description">
+              <h5><%= @city.name %></h5>
+              <p><%= @city.description %></p>
+            </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

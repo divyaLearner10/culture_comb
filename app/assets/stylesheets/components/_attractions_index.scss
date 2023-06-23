@@ -1,0 +1,115 @@
+$shadow-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-sm: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
+
+.events-heading {
+  border-radius: 10px;
+  box-shadow: $shadow-md;
+}
+
+.attractions-index .container {
+  border-radius: 10px;
+}
+
+.attractions-index .row{
+  padding: 50px;
+}
+
+.attractions-index .cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  padding: 30px;
+}
+
+.attractions-index .card {
+  border-radius: 10px;
+  box-shadow: $shadow-md;
+  height: 450px;
+}
+
+.attraction-card-img {
+  height: 250px;
+  border-radius: 10px 10px 0 0;
+}
+
+.attraction-left {
+  background-color: #d5d3c7d4;
+  border-radius: 10px;
+}
+
+
+.attraction-right {
+  border-radius: 10px;
+  background: linear-gradient(45deg,#f7e386, #e3cf73);
+}
+
+.attraction-index-title {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 24px;
+  color: #3d3f44;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+.attractions-index .card .card-title {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+  color: #3d3f44;
+  font-weight: bold;
+}
+
+.attractions-index .card .card-text {
+  font-size: 16px;
+  color: #52575D;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: normal;
+}
+
+.city-info {
+  padding: 0px;
+  margin-top: 20px;
+  background: linear-gradient(45deg,#f7e386, #efefee);
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: $shadow-md;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.city-name-description {
+  padding: 15px;
+}
+
+.city-info img {
+  border-radius: 10px 10px 0 0;
+}
+
+.city-info i {
+  color: rgb(6, 128, 128);
+  font-weight: bold;
+}
+
+.city-info h5 {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 24px;
+  color: #3d3f44;
+  text-align: center;
+}
+
+.city-info p {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+  color: rgb(6, 128, 128);
+  text-align: center;
+}
+
+.city-info a {
+  text-decoration: none;
+  text-align: center;
+  color: rgb(6, 128, 128);
+  font-weight: bold;
+}
