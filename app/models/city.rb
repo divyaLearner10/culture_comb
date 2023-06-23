@@ -1,6 +1,7 @@
 class City < ApplicationRecord
   validates :name, :description, presence: true
   validates :description, length: { minimum: 10 }
+  validates :photo, presence: true
 
   has_many :communities, dependent: :destroy
   has_many :attractions, dependent: :destroy

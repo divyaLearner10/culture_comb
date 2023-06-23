@@ -7,7 +7,7 @@
     <%= simple_form_for(@city, html: { class: "edit-form" }) do |f|%>
       <%= f.input :name %>
       <%= f.input :description, as: :text, input_html: { rows: 4 } %>
-      <%= f.input :photo, as: :file %>
+      <%= f.input :photo, label: "Upload Image", as: :file %>
       <%= f.button :submit, "Update city", class: "btn btn-primary w-100 edit-form-submit"%>
     <% end %>
   </div>
